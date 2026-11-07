@@ -108,3 +108,38 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 .partner-logo-row img:last-child {
   transform: scale(1.5);
 }
+
+@media screen {
+  .page-number {
+    position: absolute;
+    right: clamp(10px, 2.4%, 28px);
+    bottom: clamp(5px, 1.6%, 14px);
+    z-index: 1;
+    padding: 2px 5px;
+    border-radius: 4px;
+    background: #fff;
+    color: #43506b;
+    font-size: clamp(9px, 1.2vw, 14px);
+    font-weight: 650;
+    line-height: 1.3;
+    font-variant-numeric: tabular-nums;
+  }
+  .dark > .page-number,
+  #p03 > .page-number {
+    background: #101c35;
+    color: #fff;
+  }
+  #p03 {
+    padding-bottom: 28px;
+  }
+  .brand-service:not(.brand-insert)::after {
+    inset: 0;
+    height: auto;
+    background:
+      linear-gradient(#fff, #fff) 0 7.85% / 100% 3.2% no-repeat,
+      linear-gradient(#fff, #fff) 95.08% 97.22% / 2.5% 3% no-repeat;
+  }
+}
+@media print {
+  .page-number { display: none; }
+}

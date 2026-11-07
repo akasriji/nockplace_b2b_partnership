@@ -117,6 +117,15 @@ document.querySelector('#brand-service-11').insertAdjacentHTML('beforebegin',
     '</div>'
   ].join('') : '')+'</section>').join(''));
 
+const deckSlides = document.querySelectorAll('#deck > .page');
+const formatPage = number => String(number).padStart(2, '0');
+deckSlides.forEach((slide, index) => {
+ const pageNumber = document.createElement('span');
+ pageNumber.className = 'page-number';
+ pageNumber.textContent = formatPage(index + 1) + ' / ' + formatPage(deckSlides.length);
+ slide.append(pageNumber);
+});
+
 const dialog=document.querySelector('#demo');
 const container=document.querySelector('#demo-content');
 const state={route:'home',order:0,soldOut:false,reply:false,unsubscribed:false,period:'오늘',detail:false};
