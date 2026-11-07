@@ -37,9 +37,9 @@ const pages = [
  ['서비스 소개','입주민 생활 플랫폼, 노크타운','시설예약과 중고거래, 노크플레이스로 이어지는 입주민 생활편의 플랫폼입니다.',
   '<div class="platform-revised">'+
   '<div class="platform-features">'+
-  '<figure class="platform-feature"><figcaption>시설예약</figcaption><div class="platform-crop facility-crop">'+asset('town-platform','노크타운 시설예약 화면')+'</div></figure>'+
-  '<figure class="platform-feature"><figcaption>중고거래</figcaption><div class="platform-crop resale-crop">'+asset('town-platform','노크타운 중고거래 화면')+'</div></figure>'+
-  '<figure class="platform-feature place-entry"><figcaption>노크플레이스</figcaption><div class="entry-phone">'+asset('town-platform','노크타운 앱의 노크플레이스 GNB 진입 화면')+'<span class="entry-gnb-focus" aria-hidden="true"></span></div><p>하단 메뉴에서<br>노크플레이스로 연결</p></figure>'+
+  '<figure class="platform-feature"><figcaption>시설예약</figcaption><div class="platform-phone"><img src="platform-facility.png" alt="노크타운 시설예약 실제 화면"></div></figure>'+
+  '<figure class="platform-feature"><figcaption>중고거래</figcaption><div class="platform-phone"><img src="platform-resale.png" alt="노크타운 중고거래 실제 화면"></div></figure>'+
+  '<figure class="platform-feature place-entry"><figcaption>노크플레이스</figcaption><div class="platform-phone"><img src="platform-entry.png" alt="노크타운 하단 노크플레이스 진입 메뉴 실제 화면"><span class="entry-gnb-focus" aria-hidden="true"></span></div><p>하단 메뉴에서 노크플레이스로 연결</p></figure>'+
   '</div>'+
   '<figure class="platform-main"><figcaption>노크플레이스 메인</figcaption><div class="hand-source">'+
   asset('town-platform','손에 든 노크플레이스 메인 화면')+

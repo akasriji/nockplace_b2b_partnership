@@ -726,3 +726,30 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
   .entry-gnb-focus { border-width: 1px; border-radius: 2px; }
 }
 .platform-main { align-self: start; }
+
+/* Source-PDF screens share one viewport and one frame geometry. */
+.platform-features { position: relative; align-items: start; }
+.platform-phone {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 183 / 323;
+  overflow: hidden;
+  border: 5px solid #202329;
+  border-radius: 25px;
+  background: #fff;
+  box-shadow: 0 6px 14px #062a6b33;
+}
+.platform-phone > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.platform-feature > figcaption { height: 47px; display: flex; justify-content: center; align-items: center; padding: 0 0 14px; }
+.place-entry p { position: absolute; bottom: 7px; left: 0; width: 100%; margin: 0; font-size: 12px; }
+.platform-phone .entry-gnb-focus { left: 86%; top: 89%; width: 13%; height: 8%; }
+@media (max-width:720px) {
+  .platform-phone { border-width: 2px; border-radius: 12px; }
+  .platform-feature > figcaption { height: 30px; padding-bottom: 8px; }
+  .place-entry p { font-size: 8px; bottom: 5px; }
+}
+@media print {
+  .platform-phone { border-width: 1mm; border-radius: 5mm; }
+  .platform-feature > figcaption { height: 11mm; padding-bottom: 3mm; }
+  .place-entry p { font-size: 12px; bottom: 1.5mm; }
+}
