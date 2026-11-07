@@ -50,3 +50,8 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
  .complexes-promo{left:46.83%;top:29.45%;width:30.73%;height:34.55%;background:#1263f1;border-radius:1.2cqw}
  .complexes-promo span{font-size:2.02cqw;font-weight:650}.complexes-promo strong{font-size:3.22cqw;font-weight:850}
 }
+@media screen{
+ .complexes-promo{gap:1.4cqw}
+ .complexes-promo span{font-size:2.18cqw;font-weight:750}
+ .complexes-promo .promo-logo{display:block;width:52%;height:auto;border-radius:.4cqw}
+}
