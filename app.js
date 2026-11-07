@@ -27,7 +27,9 @@ const pages = [
  ['회사 소개','트러스테이 회사 소개','주거 시장의 디지털 전환을 이끄는 프롭테크 플랫폼 기업.',
   '<div class="trustay-slide">'+asset('trustay-company','트러스테이 회사 소개. 주거 통합 플랫폼의 세 서비스 중 노크플레이스 영역을 빨간 테두리로 강조했습니다.')+'<span class="trustay-highlight" aria-hidden="true"></span></div>',townSource+' 2쪽 · 노크플레이스 강조'],
  ['도입 사례','노크 플랫폼 도입 단지','대표 도입 단지를 통해 노크 플랫폼의 적용 사례를 소개합니다.',
-  asset('complexes','노크 플랫폼 대표 도입 단지 사진과 단지명'),townSource+' 3쪽'],
+  '<div class="complexes-slide">'+asset('complexes','노크 플랫폼 도입 단지 사진과 단지명')+
+  '<div class="complexes-intro"><strong>노크 플랫폼 도입 단지</strong><span>국내 최고의 프리미엄 아파트가 선택하고<br>성공적으로 검증한 주거 Tech ‘노크’</span></div>'+
+  '<div class="complexes-promo"><span>프리미엄 단지 근처 사업장을<br>홍보하세요</span><strong>노크플레이스</strong></div></div>',townSource+' 3쪽'],
  ['서비스 소개','입주민 생활 플랫폼, 노크타운','시설예약, 타운마켓, 중고거래 등 입주민이 일상에서 사용하는 기능을 제공합니다.',
   asset('town','노크타운 홈 및 시설예약·타운마켓·중고거래 화면'),townSource+' 4쪽'],
  ['도입 규모','노크타운 누적 가입자 100만+','2026년 9월 기준 노크타운의 이용자와 도입 단지 현황입니다.',
