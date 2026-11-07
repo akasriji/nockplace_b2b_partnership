@@ -778,7 +778,7 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
  .top .proposal-nav { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 0 9px; font-size: 12px; }
  .nav-group summary, .nav-direct { padding: 9px 0; justify-content: center; text-align: center; }
  .nav-dropdown { width: min(225px,calc(100vw - 32px)); top: 100%; left: 0; }
- .nav-group:nth-child(4n) .nav-dropdown { left: auto; right: 0; }
+ .nav-group:nth-child(4n-1) .nav-dropdown, .nav-group:nth-child(4n) .nav-dropdown { left: auto; right: 0; }
  .page { scroll-margin-top: 170px; }
 }
 @media print { .top { display: none!important; } }
