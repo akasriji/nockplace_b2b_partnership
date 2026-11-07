@@ -514,3 +514,39 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
   .closing-copyright { margin-bottom: 16px; }
 }
 @media print { #closing-title { font-size: 52px; } }
+
+.cover-brand-logo {
+  display: block;
+  width: min(210px, 100%);
+  height: auto;
+  margin: 0 0 22px;
+  filter: grayscale(1) invert(1);
+  mix-blend-mode: screen;
+  clip-path: inset(12% 0 0);
+}
+.cover-feature-list {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  color: #f2f2fc;
+  font-size: 18px;
+  font-weight: 550;
+  line-height: 1.45;
+  letter-spacing: -.015em;
+}
+.cover-feature-list li { display: flex; align-items: center; gap: 10px; }
+.cover-feature-list li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  flex: none;
+  border-radius: 50%;
+  background: #bfb0ff;
+}
+#p01 > .lead { color: #e6e6f6; line-height: 1.65; }
+@media print {
+  .cover-brand-logo { width: 190px; margin-bottom: 16px; }
+  .cover-feature-list { font-size: 17px; gap: 8px; margin-bottom: 18px; }
+}
