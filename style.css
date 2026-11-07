@@ -55,3 +55,17 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
  .complexes-promo span{font-size:2.18cqw;font-weight:750}
  .complexes-promo .promo-logo{display:block;width:48%;height:auto;filter:grayscale(1) invert(1) contrast(7);mix-blend-mode:screen;clip-path:inset(12% 0 0)}
 }
+.town-platform-slide{display:none}
+@media screen{
+ #p04{min-height:0;padding:0}
+ #p04>.eyebrow,#p04>h2,#p04>.lead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ #p04 .body{margin:0}
+ .town-print-original{display:none}
+ .town-platform-slide{display:block;position:relative;width:100%;container-type:inline-size}
+ .town-platform-slide .asset{width:100%;height:auto;max-height:none;border-radius:0}
+ .town-platform-title{position:absolute;left:5.5%;top:3%;width:90%;height:15%;display:flex;align-items:flex-end;gap:.65cqw;padding-bottom:.25cqw;background:white;color:#111b2d;font-size:2.7cqw;font-weight:850;letter-spacing:-.04em}
+ .town-platform-title strong{color:#1659e8}
+ .town-platform-label{position:absolute;left:24.3%;top:45.6%;width:12.45%;height:4.8%;display:grid;place-items:center;background:#205ce5;color:#fff;font-size:1.56cqw;font-weight:750}
+ .town-platform-home{position:absolute;left:24.1%;top:51.4%;width:12.78%;height:38.65%;object-fit:cover;object-position:center top;border:clamp(1px,.26cqw,4px) solid #e82740;border-radius:2.1cqw 2.1cqw 0 0;background:#fff}
+ .town-platform-gnb{position:absolute;left:78.24%;top:86.42%;width:2.48%;height:4.55%;border:clamp(1px,.26cqw,4px) solid #e82740;border-radius:.55cqw}
+}

@@ -31,7 +31,12 @@ const pages = [
   '<div class="complexes-intro"><strong>노크 플랫폼 도입 단지</strong><span>국내 최고의 프리미엄 아파트가 선택하고<br>성공적으로 검증한 주거 Tech ‘노크’</span></div>'+
   '<div class="complexes-promo"><span>프리미엄 단지 입주민에게<br>우리 매장을 알리는 방법</span><img class="promo-logo" src="nockplace-promo-logo.png" alt="노크플레이스"></div></div>',townSource+' 3쪽'],
  ['서비스 소개','입주민 생활 플랫폼, 노크타운','시설예약, 타운마켓, 중고거래 등 입주민이 일상에서 사용하는 기능을 제공합니다.',
-  asset('town','노크타운 홈 및 시설예약·타운마켓·중고거래 화면'),townSource+' 4쪽'],
+  '<div class="town-platform-slide">'+asset('town-platform','노크타운 시설예약과 중고거래, 손에 든 노크타운 앱 화면')+
+  '<div class="town-platform-title">입주민 생활편의 플랫폼, <strong>노크타운 / 노크플레이스</strong></div>'+
+  '<span class="town-platform-label">노크플레이스</span>'+
+  '<img class="town-platform-home" src="nockplace-home-screen.png" alt="노크플레이스 메인 화면">'+
+  '<span class="town-platform-gnb" aria-hidden="true"></span></div>'+
+  '<div class="town-print-original">'+asset('town','노크타운 홈 및 시설예약·타운마켓·중고거래 화면')+'</div>',townSource+' 4쪽'],
  ['도입 규모','노크타운 누적 가입자 100만+','2026년 9월 기준 노크타운의 이용자와 도입 단지 현황입니다.',
  grid('three',card('누적 가입자','<span class="stat">100만+</span>'),card('도입 단지','<span class="stat">1,300+</span>'),card('월간 활성 이용자','<span class="stat">70만+</span>'))+asset('growth-chart','노크타운 MAU·도입 단지·가입자 성장 그래프')+'<p class="mini-note">자료에 제시된 비교 수치 · 이전 MAU 12만, 도입 단지 301곳</p>',townSource+' 5쪽'],
  ['이용자 구성','실거주 인증 기반의 입주민 접점','관리사무소를 통해 실거주를 인증한 이용자에게 매장 소식과 혜택을 알릴 수 있습니다.',
