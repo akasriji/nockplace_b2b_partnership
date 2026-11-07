@@ -330,3 +330,19 @@ container.addEventListener('click',event=>{
  const replacement=Array.from(container.querySelectorAll('button')).find(btn=>route?btn.dataset.route===route:btn.dataset.action===id);
  (replacement&&!replacement.disabled?replacement:container.querySelector('button[aria-current=true]')||container.querySelector('button'))?.focus();
 });
+
+// Only one table-of-contents group stays open; selecting a destination closes it.
+const navGroups = [...document.querySelectorAll('.proposal-nav details')];
+navGroups.forEach(group => group.addEventListener('toggle', () => {
+ if (group.open) navGroups.filter(other => other !== group).forEach(other => other.open = false);
+}));
+document.addEventListener('click', event => {
+ if (!event.target.closest('.proposal-nav') || event.target.closest('.proposal-nav a')) {
+  navGroups.forEach(group => group.open = false);
+ }
+});
+document.addEventListener('keydown', event => {
+ if (event.key === 'Escape') navGroups.filter(group => group.open).forEach(group => {
+  group.open = false; group.querySelector('summary').focus();
+ });
+});

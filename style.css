@@ -753,3 +753,32 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
   .platform-feature > figcaption { height: 11mm; padding-bottom: 3mm; }
   .place-entry p { font-size: 12px; bottom: 1.5mm; }
 }
+
+/* Proposal table of contents: grouped anchors, keyboard and touch access. */
+.top { gap: 16px; padding: 12px max(2vw,20px); z-index: 10; }
+.top .proposal-nav { display: flex; align-items: center; gap: 15px; font-size: 13px; font-weight: 700; }
+.nav-group { position: relative; }
+.nav-group summary { display: flex; align-items: center; gap: 5px; list-style: none; cursor: pointer; padding: 10px 0; white-space: nowrap; }
+.nav-group summary::-webkit-details-marker { display: none; }
+.nav-group summary::after { content: ''; width: 5px; height: 5px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px); opacity: .6; }
+.nav-group[open] summary, .proposal-nav a:hover { color: var(--accent); }
+.nav-group[open] summary::after { transform: rotate(225deg); }
+.nav-group summary:focus-visible { outline: 3px solid #a970ff; outline-offset: 4px; border-radius: 3px; }
+.nav-direct { padding: 10px 0; white-space: nowrap; }
+.nav-dropdown { position: absolute; top: calc(100% + 10px); left: -16px; width: 225px; padding: 8px; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 35px #14234420; }
+.nav-dropdown a { display: block; padding: 12px; font-size: 13px; line-height: 1.4; font-weight: 600; border-radius: 7px; }
+.nav-dropdown a:hover, .nav-dropdown a:focus-visible { background: #f2f0ff; }
+@media (max-width:1100px) {
+ .top { flex-wrap: wrap; }
+ .top .proposal-nav { order: 3; width: 100%; justify-content: center; gap: 23px; }
+ .page { scroll-margin-top: 140px; }
+}
+@media (max-width:720px) {
+ .top { padding: 10px 16px 8px; gap: 6px 10px; }
+ .top .proposal-nav { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 0 9px; font-size: 12px; }
+ .nav-group summary, .nav-direct { padding: 9px 0; justify-content: center; text-align: center; }
+ .nav-dropdown { width: min(225px,calc(100vw - 32px)); top: 100%; left: 0; }
+ .nav-group:nth-child(4n) .nav-dropdown { left: auto; right: 0; }
+ .page { scroll-margin-top: 170px; }
+}
+@media print { .top { display: none!important; } }
