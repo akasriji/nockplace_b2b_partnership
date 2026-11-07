@@ -389,3 +389,17 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
   .feature-overview figure { padding: 3mm; }
   .feature-overview .asset { height: 58mm; }
 }
+
+.coupon-choice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 14px;
+  padding: 13px 18px;
+  background: #eeebff;
+  color: #382da7;
+  border-radius: 9px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.coupon-choice strong { font-weight: 750; }
+.coupon-benefits .offer-frame:last-child .offer-image { margin-top: 0; }

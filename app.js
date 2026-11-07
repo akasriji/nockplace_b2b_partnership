@@ -165,7 +165,7 @@ for (const [id, label, title, lead, selectors, cut] of sourceSlideHeaders) {
 }
 
 const basicFeatures = [
- ['capture-home', '매장 발견', '동네생활과 동네소통에서 매장과 혜택을 알립니다.'],
+ ['capture-home', '매장 발견', '동네생활과 동네소통에서 매장과 쿠폰 혜택을 알립니다.'],
  ['capture-map', '지도 노출', '주변 매장의 위치와 업종, 거리와 혜택을 보여줍니다.'],
  ['capture-chat', '채팅방 운영', '특가 소식을 전하고 메뉴와 재고 문의를 받습니다.'],
  ['customer-checkout', '픽업 주문', '상품 확인부터 주문과 매장 수령까지 연결합니다.']
@@ -177,8 +177,26 @@ document.querySelector('#p08').insertAdjacentHTML('beforebegin',
  '<p class="lead">매장 큐레이션, 지도 노출, 채팅방 운영과 픽업 주문을 기본 기능으로 제공합니다.</p>'+
  '<div class="body"><div class="feature-overview">'+basicFeatures.map(([file,title,description])=>
  '<figure>'+asset(file,title)+'<figcaption><strong>'+title+'</strong><p>'+description+'</p></figcaption></figure>').join('')+
- '</div><div class="feature-owner"><strong>사장님 매장관리</strong><span>메뉴·품절 관리 · 주문 접수 · 픽업 준비 · 매출 확인</span></div>'+
+ '</div><div class="feature-owner"><strong>사장님 매장관리</strong><span>메뉴·품절 관리 · 쿠폰 발행 · 주문 접수 · 픽업 준비 · 매출 확인</span></div>'+
  '<p class="separate-banner">배너 광고는 별도 상품으로 제공하며, 가격은 협의합니다.</p></div></section>');
+
+document.querySelector('#p09').insertAdjacentHTML('afterend',
+ '<section class="page coupon-benefits" id="coupon-benefits" aria-labelledby="coupon-benefits-title">'+
+ '<div class="eyebrow">기본 기능 · 쿠폰 프로모션</div>'+
+ '<h2 id="coupon-benefits-title">쿠폰으로 매장 방문의 계기를 만듭니다</h2>'+
+ '<p class="lead">지도·주변 매장 목록에서 우선 노출되고, 매장에 맞는 혜택으로 입주민의 워크인 방문을 유도하세요.</p>'+
+ '<div class="body">'+offer([
+ ['capture-map-list','지도·주변 매장 목록','28% 0% 58% 0%'],
+ ['coupon-benefit','고객 · 쿠폰 상세와 다운로드','73% 6% 15% 6%'],
+ ['coupon-management','사장님 · 쿠폰 발행·관리']
+ ],[
+ ['우선 노출','쿠폰 발행 매장은 지도·주변 매장 목록에서 우선 노출됩니다.'],
+ ['혜택 노출','쿠폰 혜택을 함께 표시해 매장을 선택할 이유를 제공합니다.'],
+ ['방문 유도','쿠폰을 확인하고 다운로드한 고객이 매장에서 혜택을 이용하도록 연결합니다.'],
+ ['운영 확인','사장님은 쿠폰의 발행 상태와 받음·사용 현황을 확인합니다.']
+ ],'쿠폰 혜택 발견 → 조건 확인·다운로드 → 매장 방문·사용')+
+ '<div class="coupon-choice"><strong>쿠폰 발행은 선택 사항입니다.</strong><span>매장 상황에 맞춰 혜택과 사용 조건을 정해 운영할 수 있습니다.</span></div>'+
+ button('coupons','쿠폰 화면 보기')+'</div></section>');
 
 const deckSlides = document.querySelectorAll('#deck > .page');
 const formatPage = number => String(number).padStart(2, '0');
@@ -192,7 +210,7 @@ deckSlides.forEach((slide, index) => {
 const dialog=document.querySelector('#demo');
 const container=document.querySelector('#demo-content');
 const state={route:'home',order:0,soldOut:false,reply:false,unsubscribed:false,period:'오늘',detail:false};
-const customerRoutes={home:'동네생활',feed:'동네소통',map:'지도',chat:'특가 채팅방',pickup:'픽업'};
+const customerRoutes={home:'동네생활',feed:'동네소통',coupons:'쿠폰',map:'지도',chat:'특가 채팅방',pickup:'픽업'};
 const ownerRoutes={owner:'사장님 홈',more:'더보기',menu:'메뉴',orders:'주문관리',sales:'매출'};
 const orderStates=['주문 전','주문 접수 대기','주문 접수 완료','픽업 준비 완료','픽업 완료'];
 const action=(id,label,disabled=false)=>'<button type="button" data-action="'+id+'" '+(disabled?'disabled':'')+'>'+label+'</button>';
@@ -212,6 +230,7 @@ function renderDemo(){
  if(state.mode==='owner'){renderOwnerWalkthrough();return;}
  const views={
   home:()=>asset('capture-home','인앱 동네생활 배너와 슬기로운 동네 생활')+asset('capture-case','피그마 사례 카드')+actions(go('banner','배너 보기'),go('map','매장 지도'),go('chat','동네가게 특가 채팅방')),
+  coupons:()=>asset('capture-home','쿠폰 혜택이 보이는 매장 카드')+asset('coupon-benefit','쿠폰 상세와 다운로드')+asset('coupon-management','쿠폰 발행과 사용 현황'),
   feed:()=>asset('capture-rooftop','피그마 분위기 좋은 루프탑 카페')+asset('capture-feed','인앱 매장 소식')+actions(go('map','주변 매장 보기')),
   map:()=>asset(state.detail?'capture-map-list':'capture-map',state.detail?'인앱 주변 매장 목록':'인앱 지도')+actions(action('detail','주변 매장 목록 보기'),go('chat','채팅으로 문의')),
   chat:()=>asset('capture-chat','인앱 동네가게 특가 채팅방')+actions(go('pickup','메뉴와 픽업 주문')),
