@@ -550,3 +550,20 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
   .cover-brand-logo { width: 190px; margin-bottom: 16px; }
   .cover-feature-list { font-size: 17px; gap: 8px; margin-bottom: 18px; }
 }
+
+.cover-banner-offer {
+  display: grid;
+  gap: 5px;
+  margin: -5px 0 22px;
+  padding-top: 14px;
+  border-top: 1px solid #6d6398;
+  color: #f2f2fc;
+  line-height: 1.4;
+}
+.cover-banner-offer strong { font-size: 18px; font-weight: 650; }
+.cover-banner-offer span { font-size: 14px; color: #cfc6ef; }
+@media print {
+  .cover-banner-offer { margin-bottom: 16px; padding-top: 11px; }
+  .cover-banner-offer strong { font-size: 17px; }
+  .cover-banner-offer span { font-size: 13px; }
+}

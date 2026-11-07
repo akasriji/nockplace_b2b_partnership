@@ -27,7 +27,7 @@ const offer = (frames, rows, steps) =>
  '</dl><h3>이용 흐름</h3><p class="offer-flow">'+steps+'</p></div></div>';
 const pages = [
  ['B2B PARTNERSHIP','동네의 발견을<br>매장 방문으로','가까운 입주민에게 매장과 혜택을 알리고,<br>채팅과 픽업 주문으로 매장 방문을 연결합니다.',
- grid('cover-grid','<div class="cover-copy"><img class="cover-brand-logo" src="nockplace-promo-logo.png" alt="노크플레이스"><ul class="cover-feature-list"><li>매장 큐레이션</li><li>지도 노출</li><li>특가 채팅방</li><li>픽업 주문</li></ul>'+button('owner','사장님 화면 데모 보기')+'</div>',asset('cover-neighborhood','아파트 생활권과 주변 매장 개념도')),brandSource+' 10쪽'],
+ grid('cover-grid','<div class="cover-copy"><img class="cover-brand-logo" src="nockplace-promo-logo.png" alt="노크플레이스"><ul class="cover-feature-list"><li>매장 큐레이션</li><li>지도 노출</li><li>특가 채팅방</li><li>픽업 주문</li></ul><div class="cover-banner-offer"><strong>배너 광고</strong><span>별도 상품 · 가격 협의</span></div>'+button('owner','사장님 화면 데모 보기')+'</div>',asset('cover-neighborhood','아파트 생활권과 주변 매장 개념도')),brandSource+' 10쪽'],
  ['회사 소개','트러스테이 회사 소개','주거 시장의 디지털 전환을 이끄는 프롭테크 플랫폼 기업.',
   '<div class="trustay-slide">'+asset('trustay-company','트러스테이 회사 소개. 주거 통합 플랫폼의 세 서비스 중 노크플레이스 영역을 빨간 테두리로 강조했습니다.')+'<span class="trustay-highlight" aria-hidden="true"></span></div>',townSource+' 2쪽 · 노크플레이스 강조'],
  ['도입 사례','노크 플랫폼 도입 단지','대표 도입 단지를 통해 노크 플랫폼의 적용 사례를 소개합니다.',
