@@ -75,6 +75,18 @@ document.querySelector('#p02').insertAdjacentHTML('afterend',
  '<section class="page inserted-brand no-print" id="p02-brand" aria-label="트러스테이 진화과정">'+
  asset('trustay-evolution','트러스테이 진화과정. 주거 공간 디지털 전환에서 생활권 기반 플랫폼을 거쳐 도시 기반 통합 플랫폼으로 확장.')+'</section>');
  
+const townOriginals = [
+ ['p05', 5, '노크타운 가입자와 도입 단지 수 및 월간 활성 이용자 추이'],
+ ['p06', 6, '노크타운 이용자의 성별 및 연령대 분포'],
+ ['p07', 7, '노크타운 도입 단지의 지역별 분포']
+];
+for (const [id, sourcePage, description] of townOriginals) {
+ const page = document.getElementById(id);
+ page.classList.add('town-original');
+ page.insertAdjacentHTML('afterbegin', '<div class="town-original-screen">'+
+  asset('town-original-'+sourcePage, description)+'</div>');
+}
+
 const dialog=document.querySelector('#demo');
 const container=document.querySelector('#demo-content');
 const state={route:'home',order:0,soldOut:false,reply:false,unsubscribed:false,period:'오늘',detail:false};

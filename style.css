@@ -69,3 +69,10 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
  .town-platform-home{position:absolute;left:24.1%;top:51.4%;width:12.78%;height:38.65%;object-fit:cover;object-position:center top;border:clamp(1px,.26cqw,4px) solid #e82740;border-radius:2.1cqw 2.1cqw 0 0;background:#fff}
  .town-platform-gnb{position:absolute;left:78.24%;top:86.42%;width:2.48%;height:4.55%;border:clamp(1px,.26cqw,4px) solid #e82740;border-radius:.55cqw}
 }
+.town-original-screen{display:none}
+@media screen{
+ .page.town-original{min-height:0;padding:0}
+ .page.town-original>.eyebrow,.page.town-original>h2,.page.town-original>.lead,.page.town-original>.body{display:none}
+ .town-original-screen{display:block;width:100%}
+ .town-original-screen .asset{width:100%;height:auto;max-height:none;border-radius:0}
+}
