@@ -34,6 +34,6 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 .page.inserted-brand .asset{width:100%;height:auto;max-height:none;border-radius:0}
 @media(max-width:720px){.page.inserted-brand{padding:8px}}
 .page.inserted-brand::before,.page.inserted-brand::after{content:"";position:absolute;inset:16px 28px;pointer-events:none;background:#fff}
-.page.inserted-brand::before{clip-path:polygon(4.9% 7.6%,6.8% 7.6%,6.8% 10.5%,4.9% 10.5%)}
+.page.inserted-brand::before{clip-path:inset(7.4% 0 89.2% 0)}
 .page.inserted-brand::after{clip-path:polygon(92.9% 94%,95.3% 94%,95.3% 97.2%,92.9% 97.2%)}
 @media(max-width:720px){.page.inserted-brand::before,.page.inserted-brand::after{inset:8px}}
