@@ -22,3 +22,7 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 #p02>.eyebrow,#p02>h2,#p02>.lead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 #p02{padding:16px 28px 52px}#p02 .body{margin:0}#p02 .asset{width:100%;max-height:none;border-radius:0}
 @media print{#p02{padding:6mm 10mm 15mm}#p02 .asset{max-height:181mm}}
+#p01 .cover-grid{grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:24px}
+#p01 .cover-grid .asset{width:100%;height:auto;max-height:none;padding:0;border-radius:12px}
+@media(max-width:720px){#p01 .cover-grid{grid-template-columns:1fr;gap:16px}}
+@media print{#p01 .cover-grid .asset{max-height:106mm;width:auto;max-width:100%}}
