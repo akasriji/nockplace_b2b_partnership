@@ -26,3 +26,5 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 #p01 .cover-grid .asset{width:100%;height:auto;max-height:none;padding:0;border-radius:12px}
 @media(max-width:720px){#p01 .cover-grid{grid-template-columns:1fr;gap:16px}}
 @media print{#p01 .cover-grid .asset{max-height:106mm;width:auto;max-width:100%}}
+#p02 .trustay-slide{position:relative;width:100%}
+#p02 .trustay-highlight{position:absolute;left:66.1%;top:64.9%;width:27.5%;height:23.6%;border:clamp(2px,.35vw,5px) solid #d62033;border-radius:clamp(4px,.8vw,12px);pointer-events:none}

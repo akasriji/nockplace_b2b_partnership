@@ -25,7 +25,7 @@ const pages = [
  ['B2B PARTNERSHIP','동네의 발견을<br>매장 방문으로','아파트 생활권에서 매장과 혜택을 알리고 채팅과 픽업 주문으로 연결하는 노크플레이스 제휴 제안입니다.',
  grid('cover-grid','<div class="cover-copy"><div class="cover-name">NOCKPLACE</div><p>매장 큐레이션 · 지도 노출<br>특가 채팅방 · 픽업 주문</p>'+button('owner','사장님 화면 데모 보기')+'</div>',asset('cover-neighborhood','아파트 생활권과 주변 매장 개념도')),brandSource+' 10쪽'],
  ['회사 소개','트러스테이 회사 소개','주거 시장의 디지털 전환을 이끄는 프롭테크 플랫폼 기업.',
-  asset('trustay-brand-company','트러스테이 회사 소개. 주거 통합 플랫폼 nock 아래 노크타운, 노크존, 노크플레이스의 역할을 설명하는 공식 장표.'),brandSource+' 6쪽 · 원본 장표'],
+  '<div class="trustay-slide">'+asset('trustay-company','트러스테이 회사 소개. 주거 통합 플랫폼의 세 서비스 중 노크플레이스 영역을 빨간 테두리로 강조했습니다.')+'<span class="trustay-highlight" aria-hidden="true"></span></div>',townSource+' 2쪽 · 노크플레이스 강조'],
  ['도입 사례','노크 플랫폼 도입 단지','대표 도입 단지를 통해 노크 플랫폼의 적용 사례를 소개합니다.',
   asset('complexes','노크 플랫폼 대표 도입 단지 사진과 단지명'),townSource+' 3쪽'],
  ['서비스 소개','입주민 생활 플랫폼, 노크타운','시설예약, 타운마켓, 중고거래 등 입주민이 일상에서 사용하는 기능을 제공합니다.',
