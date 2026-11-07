@@ -53,5 +53,5 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 @media screen{
  .complexes-promo{gap:1.4cqw}
  .complexes-promo span{font-size:2.18cqw;font-weight:750}
- .complexes-promo .promo-logo{display:block;width:52%;height:auto;border-radius:.4cqw}
+ .complexes-promo .promo-logo{display:block;width:48%;height:auto;filter:grayscale(1) invert(1) contrast(7);mix-blend-mode:screen;clip-path:inset(12% 0 0)}
 }
