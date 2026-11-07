@@ -104,3 +104,7 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
   min-height: 0;
   object-fit: contain;
 }
+
+.partner-logo-row img:last-child {
+  transform: scale(1.5);
+}
