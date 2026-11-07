@@ -143,3 +143,66 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 @media print {
   .page-number { display: none; }
 }
+
+.offer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: clamp(16px, 2.6vw, 32px);
+  align-items: start;
+}
+.offer-visual {
+  display: flex;
+  gap: clamp(8px, 1.3vw, 16px);
+  padding: clamp(12px, 1.7vw, 22px);
+  background: #f0f3fb;
+  border-radius: 18px;
+}
+.offer-frame { flex: 1 1 0; min-width: 0; margin: 0; }
+.offer-frame figcaption {
+  margin: 0 0 10px;
+  color: #4939b8;
+  font-size: clamp(11px, 1.15vw, 14px);
+  font-weight: 750;
+  text-align: center;
+}
+.offer-image {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.offer-image .asset {
+  max-height: 365px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  border: 1px solid #dde2ee;
+  border-radius: 11px;
+}
+.screen-focus {
+  position: absolute;
+  inset: var(--box);
+  border: 2px solid #df385a;
+  border-radius: 4px;
+  pointer-events: none;
+}
+.offer-info h3 { margin: 0 0 8px; color: #4939b8; font-size: 16px; }
+.offer-info dl { margin: 0 0 20px; }
+.offer-info dl > div {
+  display: grid;
+  grid-template-columns: minmax(80px, .9fr) minmax(0, 2fr);
+  border-bottom: 1px solid #dce2ed;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.offer-info dt { padding: 9px 10px; background: #eef1f8; font-weight: 750; }
+.offer-info dd { margin: 0; padding: 9px 10px; }
+.offer-flow { font-weight: 700; font-size: 14px; }
+.offer-source { color: #5a6680; font-size: 12px; margin-top: 8px; }
+@media (max-width: 720px) {
+  .offer-layout { grid-template-columns: 1fr; }
+  .offer-visual { border-radius: 12px; }
+}
+@media print {
+  .offer-image .asset { max-height: 105mm; }
+}

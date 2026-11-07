@@ -5,13 +5,10 @@ const grid = (size, ...items) => '<div class="grid '+size+'">'+items.join('')+'<
 const asset = (name, alt) => '<img class="asset" src="'+name+'.webp" alt="'+alt+'">';
 const button = (route, label) => '<div class="no-print"><button class="button" data-demo="'+route+'">'+label+'</button></div>';
 const screen = (title, ...rows) => '<div class="screen"><b>'+title+'</b>'+rows.map(row=>'<div class="tile">'+row+'</div>').join('')+'</div>';
-const map = '<div class="map"><span class="pin">베이커리</span><span class="pin">카페</span><span class="pin">매장</span></div>';
-const banner = '<div class="callout">동네생활 상단 배너 예시 · 우리 동네 베이커리 주말 소식</div>';
 const townSource = '노크타운 광고상품소개서 2026.4Q';
 const brandSource = '노크플레이스 브랜드소개서';
 const salesSource = '노크플레이스 서비스소개서 · 입점';
 const guideSource = '노크플레이스 사장님 가이드';
-const sample = '<p class="mini-note">노크플레이스 화면 구성 예시</p>';
 
 const ownerSteps = [
  ['store','매장관리','메뉴·주문·매출과 매장 정보에 접근합니다.'],
@@ -20,7 +17,14 @@ const ownerSteps = [
  ['pickup','픽업','픽업 준비 시간을 선택하고 주문을 접수합니다.'],
  ['sales','매출 내역','기간별 주문 수와 매출, 할인 내역을 확인합니다.']
 ];
-const photos=(items)=>'<div class="photo-grid">'+items.map(([file,label])=>'<figure>'+asset(file,label)+'<figcaption>'+label+'</figcaption></figure>').join('')+'</div>';
+const frame = ([file, label, focus]) => {
+ const marker = focus ? '<span class="screen-focus" aria-hidden="true" style="--box:'+focus+'"></span>' : '';
+ return '<figure class="offer-frame"><figcaption>'+label+'</figcaption><div class="offer-image">'+asset(file,label)+marker+'</div></figure>';
+};
+const offer = (frames, rows, steps, source) =>
+ '<div class="offer-layout"><div class="offer-visual">'+frames.map(frame).join('')+'</div>'+
+ '<div class="offer-info"><h3>제공 정보</h3><dl>'+rows.map(([term, value])=>'<div><dt>'+term+'</dt><dd>'+value+'</dd></div>').join('')+
+ '</dl><h3>이용 흐름</h3><p class="offer-flow">'+steps+'</p><p class="offer-source">'+source+'</p></div></div>';
 const pages = [
  ['B2B PARTNERSHIP','동네의 발견을<br>매장 방문으로','아파트 생활권에서 매장과 혜택을 알리고 채팅과 픽업 주문으로 연결하는 노크플레이스 제휴 제안입니다.',
  grid('cover-grid','<div class="cover-copy"><div class="cover-name">NOCKPLACE</div><p>매장 큐레이션 · 지도 노출<br>특가 채팅방 · 픽업 주문</p>'+button('owner','사장님 화면 데모 보기')+'</div>',asset('cover-neighborhood','아파트 생활권과 주변 매장 개념도')),brandSource+' 10쪽'],
@@ -43,26 +47,37 @@ const pages = [
  grid('two',asset('audience-chart','노크타운 이용자 성별 및 연령대 차트'),'<div class="grid">'+card('30–54세 이용자','<span class="stat">70% 이상</span>')+card('성별 분포','남성 56% · 여성 44%')+'</div>')+'<p class="mini-note">노크타운 지표 · 2026년 9월 기준</p>',townSource+' 6쪽'],
  ['도입 지역','수도권과 전국 주요 거점','노크타운 도입 단지의 지역 분포 · 2026년 9월 기준',
   grid('two',asset('region','노크타운 도입 단지 지역 분포 지도'),'<div class="grid">'+card('수도권 75%','서울 21.6% · 경기·인천 53.4%')+card('그 외 지역 25%','부산·대구 10.1% · 기타 지역 14.9%')+'</div>'),townSource+' 7쪽'],
- ['B2B 제휴 조건','기본 구독과 배너 집행','노크플레이스 입점 소개서에 명시된 구독료와 제휴 제공 범위입니다.',
- grid('two','<div class="price"><span>노크플레이스 정기 구독</span><strong>월 50,000원</strong><p>매장 큐레이션 기본 제공</p></div>',card('배너 별도 협의','동네생활 상단 배너 제공 가능<br>금액 및 기간 별도 협의'))+
- grid('four',card('매장 큐레이션','동네 콘텐츠에 매장과 혜택 노출'),card('지도 노출','위치·업종과 매장 상세 확인'),card('채팅방 운영','특가 공지와 고객 문의'),card('픽업 주문','주문 접수와 픽업 관리')),salesSource+' 10–11쪽 · 제휴 제공 범위'],
- ['매장 큐레이션','동네 콘텐츠에서 매장 발견','입주민이 동네생활의 매장 카드와 동네소통 추천을 통해 주변 매장을 발견합니다.',
- grid('two','<figure class="editorial-media">'+asset('curation','피그마 매장 큐레이션 원본')+'<figcaption>동네생활 · 매장 큐레이션</figcaption></figure>','<figure class="editorial-media">'+asset('brand-community','브랜드소개서의 동네 커뮤니티와 생활 화면')+'<figcaption>동네소통 · 장소 추천과 매장 사례</figcaption></figure>')+
- '<p class="mini-note">‘슬기로운 동네생활’ 스토어 카드 · ‘분위기 좋은 루프탑 카페’ · 매장 사례 카드</p>'+button('home','동네생활 데모 보기'),brandSource+' 11–13쪽 · 피그마 핸드오프'],
- ['지도 노출','생활권 지도에서 주변 매장 확인','업종을 살펴보고 지도나 목록에서 매장을 선택해 위치와 혜택을 확인합니다.',
-  grid('two','<div class="screen"><b>동네 지도</b>'+map+'</div>',screen('매장 목록과 상세','우리 동네 베이커리 · 도보권','메뉴 · 위치 · 입주민 전용 쿠폰'))+sample+button('map','지도 데모 보기'),salesSource+' 10쪽 · 실서비스 화면 참고'],
- ['채팅방 운영','동네가게 특가 채팅방','고객은 특가와 메뉴를 보고 문의하고, 사장님은 더보기에서 채팅 목록을 확인합니다.',
-  grid('two',screen('입주민 · 동네가게 특가 채팅방','오늘 마감 할인 소식','메뉴 보기 · 재고 문의'),screen('사장님 · 더보기','사장님 프로필','채팅 목록 → 우리 동네 베이커리 주문채팅방'))+sample+button('chat','채팅방 데모 보기'),brandSource+' 12–13쪽 · 실서비스 화면 참고'],
- ['픽업 주문','매장 방문으로 이어지는 픽업 주문','고객은 상품과 가격을 확인하고 주문한 뒤 매장에서 상품을 수령합니다.',
- photos([['customer-detail','01  상품과 혜택 확인'],['customer-checkout','02  픽업 주문'],['customer-confirmed','03  주문 접수 확인']])+button('pickup','픽업 주문 데모 보기'),salesSource+' 10쪽 · 제품 디자인 원본'],
- ['배너 노출','동네생활에서 브랜드 소식 노출','신상품, 매장 행사, 프로모션을 입주민에게 알릴 수 있습니다.',
- grid('two','<figure class="editorial-media">'+asset('banner-product','입점 서비스소개서에 실린 매장 배너와 홍보 소재')+'<figcaption>입점 소개서에 실린 홍보 소재</figcaption></figure>','<div class="grid">'+card('노출 지면','동네생활 상단 배너')+card('집행 조건','금액 및 기간 별도 협의')+'</div>')+button('banner','배너 데모 보기'),salesSource+' 11쪽'],
- ['제휴 진행','입점 사례와 제휴 진행','입점 자료에서 발췌한 고객 반응과 제휴 시작 절차입니다.',
-  grid('two',card('오씨네 축산','아파트 입주민에게 매장을 알릴 수 있다는 점을 긍정적으로 평가했습니다.'),card('SKT 대리점 연수로데오점','전단지와 관리비 고지서 광고를 써본 뒤, 입주민에게 직접 도달하는 디지털 지면을 긍정적으로 평가했습니다.'))+
-  '<div class="callout">대상 지역·참여 매장 협의 → 매장 정보 등록·검수 → 노출 시작</div>',brandSource+' 15쪽 · '+salesSource+' 12·14쪽'],
- ['사장님 매장 운영','사장님은 매장을 이렇게 운영합니다','매장관리에서 주문을 접수하고, 픽업을 준비한 뒤 매출을 확인합니다.',
+ ['B2B 제공 기능','노크플레이스에서 매장을 알리고 운영하는 방법','입주민에게 매장을 알리는 지면부터 주문과 매장 운영까지, 제휴 매장에서 사용할 기능을 한눈에 확인할 수 있습니다.',
+ offer([['capture-home','동네생활'],['capture-map','주변 지도'],['owner-store','사장님 매장관리']],
+ [['매장 발견','동네생활 매장 큐레이션 기본 제공 · 동네소통 매장 콘텐츠'],['지도 노출','주변 매장 위치 · 업종별 탐색 · 매장 목록'],['채팅·픽업','특가 채팅방 · 메뉴 확인 · 픽업 주문'],['매장 운영','메뉴와 품절 관리 · 주문 접수 · 픽업 · 매출 확인'],['배너 제공','동네생활 상단 배너 제공 가능 · 별도 협의']],
+ '매장 발견 → 혜택·메뉴 확인 → 문의 또는 픽업 주문','노크플레이스 인앱 · 피그마 핸드오프'),salesSource],
+ ['매장 큐레이션','입주민은 어디에서 매장을 발견하나요?','동네생활에서는 매장 카드와 쿠폰을, 동네소통에서는 추천 글과 매장 소식을 통해 가까운 매장을 발견합니다.',
+ offer([['capture-home','동네생활 · 슬기로운 동네 생활','25% 0% 2% 0%'],['capture-rooftop','동네소통 · 분위기 좋은 루프탑 카페','60% 0% 1% 0%'],['capture-feed','동네소통 · 실제 매장 소식']],
+ [['노출 위치','동네생활 추천 매장 영역 · 동네소통 피드'],['표시 정보','매장 사진, 이름, 업종과 적용 가능한 혜택'],['연결 화면','매장 카드 또는 피드에 연결된 매장 정보']],
+ '추천 카드·게시글 발견 → 매장과 혜택 확인','노크플레이스 인앱 · 피그마 핸드오프')+button('home','동네생활 데모 보기'),brandSource],
+ ['지도 노출','생활권 지도에서 가까운 매장을 찾습니다','지도에서 업종과 매장 위치를 살펴보고, 목록에서 거리와 혜택을 비교할 수 있습니다.',
+ offer([['capture-map','지도 · 업종 필터와 매장 핀'],['capture-map-list','목록 · 거리와 쿠폰']],
+ [['진입 위치','동네생활 상단 지도 버튼'],['지도에서','업종별 필터 · 주변 매장 핀'],['목록에서','매장명 · 업종 · 거리 · 쿠폰 표시']],
+ '지도 열기 → 업종 또는 매장 선택 → 목록과 매장 정보 확인','노크플레이스 인앱 캡처')+button('map','지도 데모 보기'),salesSource],
+ ['채팅방 운영','특가 소식을 보고 사장님에게 문의합니다','입주민은 동네생활에서 주문채팅방과 메뉴를 발견하고, 사장님은 더보기의 채팅에서 목록을 확인합니다.',
+ offer([['capture-chat','입주민 · 동네가게 특가 채팅방'],['capture-more','사장님 · 더보기','28% 3% 60% 52%'],['capture-owner-chat','사장님 · 채팅 목록'],['capture-case','피그마 · [case] 카드']],
+ [['노출 위치','동네생활의 동네가게 특가 채팅방'],['입주민 화면','주문채팅방과 판매 중인 메뉴 미리보기'],['사장님 화면','더보기 → 채팅 · 매장관리 → 채팅방 관리']],
+ '특가 발견 → 메뉴 확인·문의 → 사장님이 채팅 확인','노크플레이스 인앱 캡처 · 참여자 정보 가림')+button('chat','채팅방 데모 보기'),brandSource],
+ ['픽업 주문','상품을 고르고 주문한 뒤 매장에서 받습니다','고객은 상품 상세에서 혜택을 확인하고, 픽업 주문 후 접수 상태를 확인합니다.',
+ offer([['customer-detail','상품 상세','87% 4% 3% 4%'],['customer-checkout','픽업 주문','87% 4% 3% 4%'],['customer-confirmed','주문 접수 확인']],
+ [['주문 전','상품 이미지 · 혜택 · 판매가 확인'],['주문 단계','주문 내용과 결제 금액 확인'],['주문 후','접수 여부 확인 · 준비 완료 후 매장 수령']],
+ '상품 상세 → 픽업 주문 → 접수 확인 → 매장 수령','피그마 핸드오프 · 화면 속 상품과 금액은 디자인 데이터')+button('pickup','픽업 주문 데모 보기'),salesSource],
+ ['배너 노출','동네생활 첫 화면에 브랜드 소식을 알립니다','동네생활 상단 배너로 신상품, 행사, 프로모션을 알릴 수 있습니다.',
+ offer([['capture-home','동네생활 · 상단 배너','12% 0% 74% 0%'],['banner-product','입점 소개서 · 홍보 소재 사례'],['capture-promo','사장님 · 매장 소식 홍보']],
+ [['배너 위치','동네생활 첫 화면 상단'],['제공 조건','배너 제공 가능 · 금액 및 기간 별도 협의'],['매장 소식 운영','사장님 매장관리의 홍보 관리에서 게시물 선택']],
+ '배너 지면 협의 → 소재 확정 → 동네생활 노출','노크플레이스 인앱 캡처 · 입점 소개서')+button('banner','배너 데모 보기'),salesSource],
+ ['제휴 진행','참여 매장 확정부터 노출까지','참여 매장을 정하고 매장 정보를 등록하면, 검수 후 입주민에게 노출됩니다.',
+ offer([['capture-store','인앱 · 매장 채널'],['capture-home','인앱 · 동네생활 노출']],
+ [['대상 협의','참여 매장과 노출 대상 지역 확정'],['매장 준비','매장 정보, 메뉴, 혜택 등록 및 검수'],['노출 시작','큐레이션과 지도 노출 확인 · 배너는 별도 협의']],
+ '참여 매장 확정 → 등록·검수 → 노출 확인','노크플레이스 인앱 캡처 · 입점 안내'),salesSource],
+ ['사장님 매장 운영','사장님은 매장을 이렇게 운영합니다','매장관리에서 메뉴를 관리하고 주문을 접수한 뒤, 픽업 준비와 매출을 확인합니다.',
  '<div class="owner-gallery">'+ownerSteps.map(([key,label,description],i)=>'<figure>'+asset('owner-'+key,'피그마 사장님 '+label)+'<figcaption><span>0'+(i+1)+'</span><strong>'+label+'</strong><small>'+description+'</small></figcaption></figure>').join('')+'</div>'+
- '<p class="mini-note">피그마 핸드오프 원본 · 화면 속 주문 및 매출 수치는 디자인에 포함된 데이터입니다.</p>'+button('owner','사장님 화면 데모 보기'),'[Handoff] 노크플레이스 · 사장님 홈 / 주문접수 / 매출 내역']
+ '<p class="offer-source">피그마 핸드오프 · 주문·매출 수치는 디자인 데이터</p>'+button('owner','사장님 화면 데모 보기'),'[Handoff] 노크플레이스 · 사장님 운영']
 ];
 
 document.querySelector('#deck').innerHTML = pages.map(([label,title,lead,body,source],i)=>{
@@ -148,15 +163,15 @@ function renderDemo(){
  if(state.route==='owner'){state.route='store';state.mode='owner';}
  if(state.mode==='owner'){renderOwnerWalkthrough();return;}
  const views={
-  home:()=>asset('curation','피그마 매장 큐레이션 원본')+banner+screen('슬기로운 동네생활','우리 동네 베이커리 · 입주민 전용 쿠폰','[case] 카드 · 마감 할인 픽업')+actions(go('banner','배너 보기'),go('map','매장 지도'),go('chat','동네가게 특가 채팅방')),
-  feed:()=>screen('동네소통','분위기 좋은 루프탑 카페','동네 이웃 추천 · 분위기 좋은 테라스')+actions(go('map','주변 매장 보기')),
-  map:()=>'<div class="map">'+action('detail','베이커리')+'<span class="pin">카페</span></div>'+(state.detail?screen('우리 동네 베이커리','영업시간 10:00–20:00','입주민 전용 쿠폰 · 매장 픽업'):actions(action('detail','매장 상세 보기')))+actions(go('chat','채팅으로 문의')),
-  chat:()=>screen('우리 동네 베이커리 특가 채팅방','사장님 · 오늘 18시부터 빵 세트 마감 할인합니다.',...(state.reply?['고객 · 픽업 가능한가요?','사장님 · 메뉴에서 픽업 주문하실 수 있어요.']:[]))+actions(action('reply','픽업 문의'),go('pickup','메뉴와 픽업 주문')),
+  home:()=>asset('capture-home','인앱 동네생활 배너와 슬기로운 동네 생활')+asset('capture-case','피그마 사례 카드')+actions(go('banner','배너 보기'),go('map','매장 지도'),go('chat','동네가게 특가 채팅방')),
+  feed:()=>asset('capture-rooftop','피그마 분위기 좋은 루프탑 카페')+asset('capture-feed','인앱 매장 소식')+actions(go('map','주변 매장 보기')),
+  map:()=>asset(state.detail?'capture-map-list':'capture-map',state.detail?'인앱 주변 매장 목록':'인앱 지도')+actions(action('detail','주변 매장 목록 보기'),go('chat','채팅으로 문의')),
+  chat:()=>asset('capture-chat','인앱 동네가게 특가 채팅방')+actions(go('pickup','메뉴와 픽업 주문')),
   pickup:()=>'<div class="customer-preview">'+asset(state.order?'customer-confirmed':'customer-checkout','픽업 주문 제품 디자인')+'</div>'+screen('픽업 주문','마감 할인 빵 세트 · 8,000원'+(state.soldOut?' · 품절':''),orderStates[state.order])+actions(action('order','픽업 주문하기',state.soldOut||state.order>0),go('orders','사장님 주문관리로 이동')),
-  banner:()=>banner+screen('배너 상세','우리 동네 베이커리 · 주말 매장 소식')+actions(go('more','사장님 더보기')),
+  banner:()=>asset('capture-home','인앱 동네생활 상단 배너')+asset('capture-promo','사장님 홍보 관리')+actions(go('more','사장님 더보기')),
   owner:()=>screen('사장님 홈 · 매장관리',state.unsubscribed?'미구독 상태 · 구독 상태 확인':'영업 준비 중','메뉴 설정 · 주문관리 · 매출 내역 · 채팅방 관리')+actions(action('subscription',state.unsubscribed?'기본 화면 보기':'미구독 케이스 보기'),go('more','채팅방 관리')),
-  more:()=>screen('더보기 · 사장님','우리 동네 베이커리','메뉴 설정 · 배너 노출 · 채팅 목록')+actions(go('menu','메뉴'),go('banner','배너 노출'),go('chatlist','채팅 목록')),
-  chatlist:()=>screen('채팅 목록','우리 동네 베이커리의 주문채팅방')+actions(go('chat','채팅방 열기'),go('more','더보기로 돌아가기')),
+  more:()=>asset('capture-more','인앱 사장님 더보기')+actions(go('menu','메뉴'),go('banner','배너 노출'),go('chatlist','채팅 목록')),
+  chatlist:()=>asset('capture-owner-chat','인앱 사장님 채팅 목록')+actions(go('chat','특가 채팅방 보기'),go('more','더보기로 돌아가기')),
   menu:()=>screen('메뉴 설정','마감 할인 빵 세트 · 8,000원 · '+(state.soldOut?'품절':'판매 중'))+actions(action('stock',state.soldOut?'판매 재개':'품절 처리')),
   orders:()=>screen('주문관리',state.order?'빵 세트 1개 · 픽업 · '+orderStates[state.order]:'아직 주문이 없어요.')+actions(state.order===0?go('pickup','샘플 주문 만들기'):action('advance',['','주문 접수','준비 완료','픽업 완료','픽업 완료'][state.order],state.order===4)),
   sales:()=>screen('매출 내역',state.period+' · 샘플 매출 '+(state.order===4?'8,000원':'0원'))+actions(...['오늘','이번 주','이번 달'].map(period=>action(period,period)))
