@@ -692,3 +692,36 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
     8% 27%, 14% 27%
   );
 }
+
+.entry-phone {
+  position: relative;
+  width: 86%;
+  aspect-ratio: 397 / 820;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #1d60f6;
+}
+.entry-phone > .asset {
+  position: absolute;
+  width: 579.3451%;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  left: -374.3073%;
+  top: -48.7805%;
+  border-radius: 0;
+}
+.entry-gnb-focus {
+  position: absolute;
+  left: 80%;
+  top: 88%;
+  width: 12%;
+  height: 8%;
+  border: 2px solid #e82740;
+  border-radius: 5px;
+}
+@media (max-width:720px) {
+  .entry-phone { border-radius: 11px; }
+  .entry-gnb-focus { border-width: 1px; border-radius: 2px; }
+}

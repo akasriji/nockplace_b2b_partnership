@@ -39,7 +39,7 @@ const pages = [
   '<div class="platform-features">'+
   '<figure class="platform-feature"><figcaption>시설예약</figcaption><div class="platform-crop facility-crop">'+asset('town-platform','노크타운 시설예약 화면')+'</div></figure>'+
   '<figure class="platform-feature"><figcaption>중고거래</figcaption><div class="platform-crop resale-crop">'+asset('town-platform','노크타운 중고거래 화면')+'</div></figure>'+
-  '<figure class="platform-feature place-entry"><figcaption>노크플레이스</figcaption><div class="hand-source">'+asset('town-platform','손에 든 노크타운 앱에서 노크플레이스 GNB 진입')+'<span class="hand-gnb-focus" aria-hidden="true"></span></div><p>하단 메뉴에서<br>노크플레이스로 연결</p></figure>'+
+  '<figure class="platform-feature place-entry"><figcaption>노크플레이스</figcaption><div class="entry-phone">'+asset('town-platform','노크타운 앱의 노크플레이스 GNB 진입 화면')+'<span class="entry-gnb-focus" aria-hidden="true"></span></div><p>하단 메뉴에서<br>노크플레이스로 연결</p></figure>'+
   '</div>'+
   '<figure class="platform-main"><figcaption>노크플레이스 메인</figcaption><div class="hand-source">'+
   asset('town-platform','손에 든 노크플레이스 메인 화면')+
