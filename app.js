@@ -34,13 +34,17 @@ const pages = [
   '<div class="complexes-slide">'+asset('complexes','노크 플랫폼 도입 단지 사진과 단지명')+
   '<div class="complexes-intro"><strong>노크 플랫폼 도입 단지</strong><span>국내 최고의 프리미엄 아파트가 선택하고<br>성공적으로 검증한 주거 Tech ‘노크’</span></div>'+
   '<div class="complexes-promo"><span>프리미엄 단지 입주민에게<br>우리 매장을 알리는 방법</span><img class="promo-logo" src="nockplace-promo-logo.png" alt="노크플레이스"></div></div>',townSource+' 3쪽'],
- ['서비스 소개','입주민 생활 플랫폼, 노크타운','시설예약, 타운마켓, 중고거래 등 입주민이 일상에서 사용하는 기능을 제공합니다.',
-  '<div class="town-platform-slide">'+asset('town-platform','노크타운 시설예약과 중고거래, 손에 든 노크타운 앱 화면')+
-  '<div class="town-platform-title">입주민 생활편의 플랫폼, <strong>노크타운 / 노크플레이스</strong></div>'+
-  '<span class="town-platform-label">노크플레이스</span>'+
-  '<img class="town-platform-home" src="nockplace-home-screen.png" alt="노크플레이스 메인 화면">'+
-  '<span class="town-platform-gnb" aria-hidden="true"></span></div>'+
-  '<div class="town-print-original">'+asset('town','노크타운 홈 및 시설예약·타운마켓·중고거래 화면')+'</div>',townSource+' 4쪽'],
+ ['서비스 소개','입주민 생활 플랫폼, 노크타운','시설예약과 중고거래, 노크플레이스로 이어지는 입주민 생활편의 플랫폼입니다.',
+  '<div class="platform-revised">'+
+  '<div class="platform-features">'+
+  '<figure class="platform-feature"><figcaption>시설예약</figcaption><div class="platform-crop facility-crop">'+asset('town-platform','노크타운 시설예약 화면')+'</div></figure>'+
+  '<figure class="platform-feature"><figcaption>중고거래</figcaption><div class="platform-crop resale-crop">'+asset('town-platform','노크타운 중고거래 화면')+'</div></figure>'+
+  '<figure class="platform-feature place-entry"><figcaption>노크플레이스</figcaption><div class="hand-source">'+asset('town-platform','손에 든 노크타운 앱에서 노크플레이스 GNB 진입')+'<span class="hand-gnb-focus" aria-hidden="true"></span></div><p>하단 메뉴에서<br>노크플레이스로 연결</p></figure>'+
+  '</div>'+
+  '<figure class="platform-main"><figcaption>노크플레이스 메인</figcaption><div class="hand-source">'+
+  asset('town-platform','손에 든 노크플레이스 메인 화면')+
+  '<div class="hand-main-screen"><img src="nockplace-home-screen.png" alt="노크플레이스 메인 화면"></div>'+
+  '</div></figure></div>',townSource+' 4쪽'],
  ['도입 규모','노크 플랫폼 누적 가입자 100만+','2026년 9월 기준 노크타운의 이용자와 도입 단지 현황입니다.',
  grid('three',card('누적 가입자','<span class="stat">100만+</span>'),card('도입 단지','<span class="stat">1,300+</span>'),card('월간 활성 이용자','<span class="stat">70만+</span>'))+asset('growth-chart','노크타운 MAU·도입 단지·가입자 성장 그래프')+'<p class="mini-note">자료에 제시된 비교 수치 · 이전 MAU 12만, 도입 단지 301곳</p>',townSource+' 5쪽'],
  ['이용자 구성','실거주 인증 기반의 입주민 접점','관리사무소를 통해 실거주를 인증한 이용자에게 매장 소식과 혜택을 알릴 수 있습니다.',
@@ -136,7 +140,7 @@ const sourceSlideHeaders = [
  ['p02', '회사 소개', '주거 플랫폼을 만드는 트러스테이', '주거 공간의 디지털 전환을 통해 입주민의 일상과 지역 생활을 연결합니다.', '.body', 13.5],
  ['p02-brand', '사업 소개', '단지에서 생활권과 도시로', '트러스테이는 단지에서 시작해 도시를 연결하는 주거 플랫폼으로 확장하고 있습니다.', '.asset', 12.4],
  ['p03', '도입 사례', '노크 플랫폼 도입 단지', '프리미엄 단지 입주민에게 우리 매장을 알릴 수 있습니다.', '.body', 0],
- ['p04', '서비스 소개', '입주민 생활편의 플랫폼, 노크타운과 노크플레이스', '시설예약과 중고거래부터 생활권 매장 발견까지, 입주민이 일상에서 만나는 서비스입니다.', '.body', 13.3],
+ ['p04', '서비스 소개', '입주민 생활편의 플랫폼, 노크타운과 노크플레이스', '시설예약과 중고거래부터 생활권 매장 발견까지, 입주민이 일상에서 만나는 서비스입니다.', '.body', 0],
  ['p05', '도입 규모', '노크 플랫폼 누적 가입자 100만+', '노크 플랫폼의 가입자, 도입 단지, 월간 활성 이용자 추이입니다.', '.town-original-screen', 14.6],
  ['p06', '이용자 구성', '실거주 인증 기반의 입주민 접점', '노크타운 이용자의 성별과 연령대 분포입니다.', '.town-original-screen', 14.6],
  ['p07', '도입 지역', '수도권과 전국 주요 거점', '노크타운을 도입한 단지의 지역별 분포입니다.', '.town-original-screen', 14.6],
