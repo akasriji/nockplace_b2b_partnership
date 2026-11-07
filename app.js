@@ -101,6 +101,15 @@ document.querySelector('#service-intro').insertAdjacentHTML('afterend',
   '<section class="page brand-service no-print" id="brand-service-'+sourcePage+'" aria-label="'+description+'">'+
   asset('entry-service-'+sourcePage, description)+'</section>').join(''));
 
+const brandInsertSlides = [
+ [14, '노크플레이스의 타겟 정밀도와 매체 ROI 포지셔닝'],
+ [16, '노크플레이스 기업 및 공공기관 파트너십']
+];
+document.querySelector('#brand-service-11').insertAdjacentHTML('beforebegin',
+ brandInsertSlides.map(([sourcePage, description]) =>
+  '<section class="page brand-service brand-insert no-print" id="brand-insert-'+sourcePage+'" aria-label="'+description+'">'+
+  asset('brand-insert-'+sourcePage, description)+'</section>').join(''));
+
 const dialog=document.querySelector('#demo');
 const container=document.querySelector('#demo-content');
 const state={route:'home',order:0,soldOut:false,reply:false,unsubscribed:false,period:'오늘',detail:false};

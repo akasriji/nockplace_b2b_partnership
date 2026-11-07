@@ -88,3 +88,4 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 #brand-service-11::after{top:13.6%;height:3.1%}
 .brand-service::after,#brand-service-11::after{top:7.6%;height:3.2%}
 #brand-service-11::before{content:"";position:absolute;left:7.2%;top:55.5%;width:10%;height:3.1%;background:#f2f4f5;pointer-events:none}
+.brand-insert::before{content:"";position:absolute;right:4.8%;bottom:2.7%;width:2.5%;height:3%;background:#fff;pointer-events:none}
