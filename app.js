@@ -198,6 +198,54 @@ document.querySelector('#p09').insertAdjacentHTML('afterend',
  '<div class="coupon-choice"><strong>쿠폰 발행은 선택 사항입니다.</strong><span>매장 상황에 맞춰 혜택과 사용 조건을 정해 운영할 수 있습니다.</span></div>'+
  button('coupons','쿠폰 화면 보기')+'</div></section>');
 
+const partnerStories = [
+ {
+  name: 'SKT 대리점 연수로데오점',
+  image: 'appendix-skt',
+  benefit: '입주민에게 직접 도달',
+  description: '전단지와 관리비 고지서 광고를 경험한 뒤, 입주민에게 직접 닿는 노크플레이스의 디지털 홍보를 긍정적으로 평가했습니다.'
+ },
+ {
+  name: '시나본 바이트앤레스트',
+  image: 'appendix-cinnabon',
+  benefit: '쿠폰으로 방문·구매 유도',
+  description: '매장을 주변 고객에게 알리고 쿠폰을 발행한 뒤, 고객 방문과 구매 전환의 변화를 체감했다고 전했습니다.',
+  url: 'https://www.instagram.com/p/DXIaRYOjUe5/'
+ },
+ {
+  name: '오씨네 축산',
+  image: 'appendix-oc',
+  benefit: '동네 신규 고객에게 발견',
+  description: '아파트 입주민이 이용하는 노크플레이스에 매장이 노출되면서, 가게를 처음 알게 된 고객들의 방문이 늘었다고 전했습니다.',
+  url: 'https://www.instagram.com/p/DV91u8Rkzjm/'
+ },
+ {
+  name: 'A1 auto',
+  image: 'appendix-a1',
+  benefit: '계약 가능성이 높은 문의',
+  description: '차량 교체 수요가 있는 아파트 입주민에게 매장을 알린 뒤, 앱을 보고 연락한 고객과 계약 가능성이 높은 문의가 늘었다고 전했습니다.',
+  url: 'https://www.instagram.com/p/DVr6zink8Lg/'
+ }
+];
+document.getElementById('deck').insertAdjacentHTML('beforeend',
+ '<section class="page appendix-stories" id="appendix-stories" aria-labelledby="appendix-stories-title">'+
+ '<div class="eyebrow">APPENDIX · 입점 사례</div>'+
+ '<h2 id="appendix-stories-title">입점 사장님이 말하는 노크플레이스</h2>'+
+ '<p class="lead">입주민에게 매장을 알리고, 방문과 문의로 연결한 사장님들의 이야기입니다.</p>'+
+ '<div class="body"><div class="story-grid">'+partnerStories.map(story=>
+ '<article class="story-card">'+asset(story.image,story.name)+
+ '<div class="story-copy"><span class="story-benefit">'+story.benefit+'</span><h3>'+story.name+'</h3>'+
+ '<p>'+story.description+'</p>'+
+ (story.url?'<a href="'+story.url+'" target="_blank" rel="noopener noreferrer">인터뷰 보기 ↗</a>':'')+
+ '</div></article>').join('')+'</div></div></section>'+
+ '<section class="page source-page appendix-community" id="appendix-community" aria-labelledby="appendix-community-title">'+
+ '<header class="source-heading"><div class="eyebrow">APPENDIX · 지역과 함께 성장</div>'+
+ '<h2 id="appendix-community-title">지자체와의 협업으로 정보의 순환과 소통이 이루어지는 플랫폼</h2>'+
+ '<p class="lead">사장님에게 꼭 필요한 정보들로 입주민과 사장님, 지역까지 모든 사용자가 시너지를 만들어요.</p></header>'+
+ '<div class="source-window" style="--source-cut:14.4"><div class="source-art">'+
+ asset('appendix-community','소상공인을 위한 정책지원 정보와 고객의 가게 및 주변 상권에 대한 직접 피드백')+
+ '</div></div></section>');
+
 const deckSlides = document.querySelectorAll('#deck > .page');
 const formatPage = number => String(number).padStart(2, '0');
 deckSlides.forEach((slide, index) => {
