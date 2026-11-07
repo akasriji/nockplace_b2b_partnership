@@ -30,3 +30,10 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 #p02 .trustay-highlight{position:absolute;left:66.1%;top:64.9%;width:27.5%;height:23.6%;border:clamp(2px,.35vw,5px) solid #d62033;border-radius:clamp(4px,.8vw,12px);pointer-events:none}
 .page>.foot{display:none}
 #p02 .trustay-slide::before{content:"";position:absolute;left:4.5%;top:2.3%;width:15%;height:4.5%;background:white;pointer-events:none}
+.page.inserted-brand{min-height:0;padding:16px 28px}
+.page.inserted-brand .asset{width:100%;height:auto;max-height:none;border-radius:0}
+@media(max-width:720px){.page.inserted-brand{padding:8px}}
+.page.inserted-brand::before,.page.inserted-brand::after{content:"";position:absolute;inset:16px 28px;pointer-events:none;background:#fff}
+.page.inserted-brand::before{clip-path:polygon(4.9% 7.6%,6.8% 7.6%,6.8% 10.5%,4.9% 10.5%)}
+.page.inserted-brand::after{clip-path:polygon(92.9% 94%,95.3% 94%,95.3% 97.2%,92.9% 97.2%)}
+@media(max-width:720px){.page.inserted-brand::before,.page.inserted-brand::after{inset:8px}}

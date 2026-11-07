@@ -64,6 +64,10 @@ document.querySelector('#deck').innerHTML = pages.map(([label,title,lead,body,so
  return '<section class="page '+(i===0?'dark':'')+'" id="p'+number+'"><div class="eyebrow">'+label+'</div><'+heading+'>'+title+'</'+heading+'><p class="lead">'+lead+'</p><div class="body">'+body+'</div><footer class="foot"><span>'+source+'</span><span>'+number+' / 15</span></footer></section>';
 }).join('');
 
+document.querySelector('#p02').insertAdjacentHTML('afterend',
+ '<section class="page inserted-brand no-print" id="p02-brand" aria-label="트러스테이 진화과정">'+
+ asset('trustay-evolution','트러스테이 진화과정. 주거 공간 디지털 전환에서 생활권 기반 플랫폼을 거쳐 도시 기반 통합 플랫폼으로 확장.')+'</section>');
+ 
 const dialog=document.querySelector('#demo');
 const container=document.querySelector('#demo-content');
 const state={route:'home',order:0,soldOut:false,reply:false,unsubscribed:false,period:'오늘',detail:false};
