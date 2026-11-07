@@ -206,3 +206,130 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 @media print {
   .offer-image .asset { max-height: 105mm; }
 }
+
+/* Shared typography for proposal copy, independent of the imported artwork. */
+:root {
+  --copy-title: clamp(27px, 3.65vw, 46px);
+  --copy-lead: clamp(16px, 1.55vw, 19px);
+  --copy-label: #4939b8;
+  --copy-secondary: #44516a;
+}
+.page h2 {
+  margin: 9px 0 12px;
+  color: var(--ink);
+  font-size: var(--copy-title);
+  font-weight: 750;
+  letter-spacing: -.035em;
+  line-height: 1.18;
+}
+.page h3 {
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -.018em;
+  line-height: 1.32;
+}
+.page .lead {
+  color: var(--copy-secondary);
+  font-size: var(--copy-lead);
+  font-weight: 450;
+  letter-spacing: -.012em;
+  line-height: 1.55;
+}
+.page .eyebrow {
+  color: var(--copy-label);
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: .055em;
+  line-height: 1.4;
+}
+.page.dark h2 { color: #fff; }
+.page.dark .eyebrow { color: #d2c9ff; }
+.page.dark .lead { color: #e6e6f6; }
+.page h1 {
+  font-weight: 800;
+  letter-spacing: -.045em;
+  line-height: 1.06;
+}
+.offer-info h3 {
+  color: var(--copy-label);
+  font-size: 17px;
+  margin-bottom: 9px;
+}
+.offer-info dl > div, .offer-flow { font-size: 15px; }
+.offer-info dd { color: var(--copy-secondary); }
+.offer-frame figcaption, .owner-gallery figcaption strong {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.offer-source, .owner-gallery figcaption small {
+  color: var(--copy-secondary);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.source-heading { display: none; }
+@media screen {
+  .page,
+  .page.source-page {
+    padding: clamp(25px, 4.1vw, 50px) clamp(19px, 4vw, 48px) clamp(34px, 4.5vw, 52px);
+  }
+  .page.source-page,
+  #p02.source-page, #p03.source-page, #p04.source-page {
+    min-height: 0;
+    padding: clamp(25px, 4.1vw, 50px) clamp(19px, 4vw, 48px) clamp(34px, 4.5vw, 52px);
+    background: #fff;
+  }
+  .source-heading { display: block; margin-bottom: clamp(15px, 2vw, 24px); }
+  .source-window {
+    container-type: inline-size;
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .source-art {
+    position: relative;
+    margin-top: calc(-1 * var(--source-cut) * 1cqw);
+  }
+  .source-art > .asset { width: 100%; max-height: none; border-radius: 0; }
+  .source-page::before, .source-page::after,
+  .source-art .town-original-screen::after { display: none; }
+  #p02-brand .source-art::before {
+    content: "";
+    position: absolute;
+    inset: 0 36% 65% 0;
+    background: #fff;
+    pointer-events: none;
+  }
+  #p02-brand .source-art::after,
+  .brand-service .source-art::after {
+    content: "";
+    position: absolute;
+    right: 4.8%;
+    bottom: 2.3%;
+    width: 3%;
+    height: 4%;
+    background: #fff;
+    pointer-events: none;
+  }
+  #brand-service-11 .source-art::before {
+    content: "";
+    position: absolute;
+    left: 7.2%;
+    top: 55.5%;
+    width: 10%;
+    height: 3.1%;
+    background: #f2f4f5;
+    pointer-events: none;
+  }
+  #p03 > .page-number { background: #fff; color: var(--copy-secondary); }
+  #service-intro h2 { font-size: clamp(40px, 6.3vw, 76px); }
+  #p03 .complexes-intro strong { font-size: 2.7cqw; font-weight: 750; }
+  #p03 .complexes-intro span { font-size: 1.6cqw; font-weight: 450; }
+}
+@media print {
+  .source-window, .source-art { display: contents; }
+  .page h2 { font-size: 34px; }
+  .page .lead { font-size: 16px; }
+}

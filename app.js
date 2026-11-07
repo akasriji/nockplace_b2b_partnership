@@ -132,6 +132,38 @@ document.querySelector('#brand-service-11').insertAdjacentHTML('beforebegin',
     '</div>'
   ].join('') : '')+'</section>').join(''));
 
+const sourceSlideHeaders = [
+ ['p02', '회사 소개', '주거 플랫폼을 만드는 트러스테이', '주거 공간의 디지털 전환을 통해 입주민의 일상과 지역 생활을 연결합니다.', '.body', 13.5],
+ ['p02-brand', '사업 소개', '단지에서 생활권과 도시로', '트러스테이는 단지에서 시작해 도시를 연결하는 주거 플랫폼으로 확장하고 있습니다.', '.asset', 12.4],
+ ['p03', '도입 사례', '노크 플랫폼 도입 단지', '프리미엄 단지 입주민에게 우리 매장을 알릴 수 있습니다.', '.body', 0],
+ ['p04', '서비스 소개', '입주민 생활편의 플랫폼, 노크타운과 노크플레이스', '시설예약과 중고거래부터 생활권 매장 발견까지, 입주민이 일상에서 만나는 서비스입니다.', '.body', 13.3],
+ ['p05', '도입 규모', '노크타운 누적 가입자 100만+', '노크타운의 가입자, 도입 단지, 월간 활성 이용자 추이입니다.', '.town-original-screen', 14.6],
+ ['p06', '이용자 구성', '실거주 인증 기반의 입주민 접점', '노크타운 이용자의 성별과 연령대 분포입니다.', '.town-original-screen', 14.6],
+ ['p07', '도입 지역', '수도권과 전국 주요 거점', '노크타운을 도입한 단지의 지역별 분포입니다.', '.town-original-screen', 14.6],
+ ['brand-service-9', '홍보 채널', '우리 매장을 방문할 고객에게 닿는 방법', '전단지, 배달 앱, 엘리베이터 광고와 노크플레이스의 홍보 방식과 성과 지표를 비교합니다.', '.asset', 14.4],
+ ['brand-service-10', '매장 홍보', '사장님을 위한 매장 맞춤 기능', '가까운 입주민이 매장과 혜택을 발견하고 방문할 수 있도록 돕습니다.', '.asset', 14.4],
+ ['brand-insert-14', '매체 비교', '도달 범위와 타겟 정밀도를 함께 봅니다', '홍보 매체별 도달 범위와 타겟 정밀도를 비교합니다.', '.asset', 14.2],
+ ['brand-insert-16', '파트너십', '로컬에서 시작해 도시 단위로 확장합니다', '기업, 프랜차이즈, 공공기관과 협력해 지역 생활과 매장을 연결합니다.', '.asset, .partner-logo-row', 14.4],
+ ['brand-service-11', '서비스 제공 범위', '매장 홍보부터 성과 확인까지', '매장 운영에 필요한 기능과 광고, 성과 측정 범위를 확인할 수 있습니다.', '.asset', 14.4]
+];
+for (const [id, label, title, lead, selectors, cut] of sourceSlideHeaders) {
+ const slide = document.getElementById(id);
+ const content = slide.querySelectorAll(selectors);
+ const header = document.createElement('header');
+ header.className = 'source-heading';
+ header.innerHTML = '<div class="eyebrow">'+label+'</div><h2>'+title+'</h2><p class="lead">'+lead+'</p>';
+ const viewport = document.createElement('div');
+ viewport.className = 'source-window';
+ viewport.style.setProperty('--source-cut', cut);
+ const art = document.createElement('div');
+ art.className = 'source-art';
+ viewport.append(art);
+ slide.insertBefore(viewport, content[0]);
+ for (const node of content) art.append(node);
+ slide.prepend(header);
+ slide.classList.add('source-page');
+}
+
 const deckSlides = document.querySelectorAll('#deck > .page');
 const formatPage = number => String(number).padStart(2, '0');
 deckSlides.forEach((slide, index) => {
