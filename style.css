@@ -725,3 +725,4 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
   .entry-phone { border-radius: 11px; }
   .entry-gnb-focus { border-width: 1px; border-radius: 2px; }
 }
+.platform-main { align-self: start; }
