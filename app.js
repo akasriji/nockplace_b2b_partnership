@@ -21,10 +21,10 @@ const frame = ([file, label, focus]) => {
  const marker = focus ? '<span class="screen-focus" aria-hidden="true" style="--box:'+focus+'"></span>' : '';
  return '<figure class="offer-frame"><figcaption>'+label+'</figcaption><div class="offer-image">'+asset(file,label)+marker+'</div></figure>';
 };
-const offer = (frames, rows, steps, source) =>
+const offer = (frames, rows, steps) =>
  '<div class="offer-layout"><div class="offer-visual">'+frames.map(frame).join('')+'</div>'+
  '<div class="offer-info"><h3>제공 정보</h3><dl>'+rows.map(([term, value])=>'<div><dt>'+term+'</dt><dd>'+value+'</dd></div>').join('')+
- '</dl><h3>이용 흐름</h3><p class="offer-flow">'+steps+'</p><p class="offer-source">'+source+'</p></div></div>';
+ '</dl><h3>이용 흐름</h3><p class="offer-flow">'+steps+'</p></div></div>';
 const pages = [
  ['B2B PARTNERSHIP','동네의 발견을<br>매장 방문으로','아파트 생활권에서 매장과 혜택을 알리고 채팅과 픽업 주문으로 연결하는 노크플레이스 제휴 제안입니다.',
  grid('cover-grid','<div class="cover-copy"><div class="cover-name">NOCKPLACE</div><p>매장 큐레이션 · 지도 노출<br>특가 채팅방 · 픽업 주문</p>'+button('owner','사장님 화면 데모 보기')+'</div>',asset('cover-neighborhood','아파트 생활권과 주변 매장 개념도')),brandSource+' 10쪽'],
@@ -50,34 +50,34 @@ const pages = [
  ['기본 기능','노크플레이스에서 매장을 알리고 운영하는 방법','입주민에게 매장을 알리는 지면부터 주문과 매장 운영까지, 제휴 매장에서 사용할 기능을 한눈에 확인할 수 있습니다.',
  offer([['capture-home','동네생활'],['capture-map','주변 지도'],['owner-store','사장님 매장관리']],
  [['매장 발견','동네생활 매장 큐레이션 기본 제공 · 동네소통 매장 콘텐츠'],['지도 노출','주변 매장 위치 · 업종별 탐색 · 매장 목록'],['채팅·픽업','특가 채팅방 · 메뉴 확인 · 픽업 주문'],['매장 운영','메뉴와 품절 관리 · 주문 접수 · 픽업 · 매출 확인']],
- '매장 발견 → 혜택·메뉴 확인 → 문의 또는 픽업 주문','노크플레이스 인앱 · 피그마 핸드오프'),salesSource],
+ '매장 발견 → 혜택·메뉴 확인 → 문의 또는 픽업 주문'),salesSource],
  ['매장 큐레이션','입주민은 어디에서 매장을 발견하나요?','동네생활에서는 매장 카드와 쿠폰을, 동네소통에서는 추천 글과 매장 소식을 통해 가까운 매장을 발견합니다.',
  offer([['capture-home','동네생활 · 슬기로운 동네 생활','25% 0% 2% 0%'],['capture-rooftop','동네소통 · 분위기 좋은 루프탑 카페','60% 0% 1% 0%'],['capture-feed','동네소통 · 실제 매장 소식']],
  [['노출 위치','동네생활 추천 매장 영역 · 동네소통 피드'],['표시 정보','매장 사진, 이름, 업종과 적용 가능한 혜택'],['연결 화면','매장 카드 또는 피드에 연결된 매장 정보']],
- '추천 카드·게시글 발견 → 매장과 혜택 확인','노크플레이스 인앱 · 피그마 핸드오프')+button('home','동네생활 데모 보기'),brandSource],
+ '추천 카드·게시글 발견 → 매장과 혜택 확인')+button('home','동네생활 데모 보기'),brandSource],
  ['지도 노출','생활권 지도에서 가까운 매장을 찾습니다','지도에서 업종과 매장 위치를 살펴보고, 목록에서 거리와 혜택을 비교할 수 있습니다.',
  offer([['capture-map','지도 · 업종 필터와 매장 핀'],['capture-map-list','목록 · 거리와 쿠폰']],
  [['진입 위치','동네생활 상단 지도 버튼'],['지도에서','업종별 필터 · 주변 매장 핀'],['목록에서','매장명 · 업종 · 거리 · 쿠폰 표시']],
- '지도 열기 → 업종 또는 매장 선택 → 목록과 매장 정보 확인','노크플레이스 인앱 캡처')+button('map','지도 데모 보기'),salesSource],
+ '지도 열기 → 업종 또는 매장 선택 → 목록과 매장 정보 확인')+button('map','지도 데모 보기'),salesSource],
  ['채팅방 운영','특가 소식을 보고 사장님에게 문의합니다','입주민은 동네생활에서 주문채팅방과 메뉴를 발견하고, 사장님은 더보기의 채팅에서 목록을 확인합니다.',
- offer([['capture-chat','입주민 · 동네가게 특가 채팅방'],['capture-more','사장님 · 더보기','28% 3% 60% 52%'],['capture-owner-chat','사장님 · 채팅 목록'],['capture-case','피그마 · [case] 카드']],
+ offer([['capture-chat','입주민 · 동네가게 특가 채팅방'],['capture-more','사장님 · 더보기','28% 3% 60% 52%'],['capture-owner-chat','사장님 · 채팅 목록'],['capture-case','메뉴·채팅 카드']],
  [['노출 위치','동네생활의 동네가게 특가 채팅방'],['입주민 화면','주문채팅방과 판매 중인 메뉴 미리보기'],['사장님 화면','더보기 → 채팅 · 매장관리 → 채팅방 관리']],
- '특가 발견 → 메뉴 확인·문의 → 사장님이 채팅 확인','노크플레이스 인앱 캡처 · 참여자 정보 가림')+button('chat','채팅방 데모 보기'),brandSource],
+ '특가 발견 → 메뉴 확인·문의 → 사장님이 채팅 확인')+button('chat','채팅방 데모 보기'),brandSource],
  ['픽업 주문','상품을 고르고 주문한 뒤 매장에서 받습니다','고객은 상품 상세에서 혜택을 확인하고, 픽업 주문 후 접수 상태를 확인합니다.',
  offer([['customer-detail','상품 상세','87% 4% 3% 4%'],['customer-checkout','픽업 주문','87% 4% 3% 4%'],['customer-confirmed','주문 접수 확인']],
  [['주문 전','상품 이미지 · 혜택 · 판매가 확인'],['주문 단계','주문 내용과 결제 금액 확인'],['주문 후','접수 여부 확인 · 준비 완료 후 매장 수령']],
- '상품 상세 → 픽업 주문 → 접수 확인 → 매장 수령','피그마 핸드오프 · 화면 속 상품과 금액은 디자인 데이터')+button('pickup','픽업 주문 데모 보기'),salesSource],
+ '상품 상세 → 픽업 주문 → 접수 확인 → 매장 수령')+button('pickup','픽업 주문 데모 보기'),salesSource],
  ['별도 광고 상품','동네생활 배너 광고','동네생활 상단 배너로 신상품, 행사, 프로모션을 알릴 수 있습니다.',
- '<div class="banner-price-note"><strong>별도 광고 상품</strong><span>가격 협의</span></div>'+offer([['capture-home','동네생활 · 상단 배너','12% 0% 74% 0%'],['banner-product','입점 소개서 · 홍보 소재 사례']],
+ '<div class="banner-price-note"><strong>별도 광고 상품</strong><span>가격 협의</span></div>'+offer([['capture-home','동네생활 · 상단 배너','12% 0% 74% 0%'],['banner-product','배너 광고 소재']],
  [['배너 위치','동네생활 첫 화면 상단'],['상품 구분','기본 기능과 별도로 제공하는 배너 광고 상품'],['가격','가격 협의'],['집행 기간','별도 협의']],
- '배너 지면 협의 → 소재 확정 → 동네생활 노출','노크플레이스 인앱 캡처 · 입점 소개서')+button('banner','배너 데모 보기'),salesSource],
+ '배너 지면 협의 → 소재 확정 → 동네생활 노출')+button('banner','배너 데모 보기'),salesSource],
  ['제휴 진행','참여 매장 확정부터 노출까지','참여 매장을 정하고 매장 정보를 등록하면, 검수 후 입주민에게 노출됩니다.',
- offer([['capture-store','인앱 · 매장 채널'],['capture-home','인앱 · 동네생활 노출']],
+ offer([['capture-store','매장 채널'],['capture-home','동네생활 노출']],
  [['대상 협의','참여 매장과 노출 대상 지역 확정'],['매장 준비','매장 정보, 메뉴, 혜택 등록 및 검수'],['노출 시작','큐레이션과 지도 노출 확인 · 배너 광고는 별도 상품 · 가격 협의']],
- '참여 매장 확정 → 등록·검수 → 노출 확인','노크플레이스 인앱 캡처 · 입점 안내'),salesSource],
+ '참여 매장 확정 → 등록·검수 → 노출 확인'),salesSource],
  ['사장님 매장 운영','사장님은 매장을 이렇게 운영합니다','매장관리에서 메뉴를 관리하고 주문을 접수한 뒤, 픽업 준비와 매출을 확인합니다.',
  '<div class="owner-gallery">'+ownerSteps.map(([key,label,description],i)=>'<figure>'+asset('owner-'+key,'피그마 사장님 '+label)+'<figcaption><span>0'+(i+1)+'</span><strong>'+label+'</strong><small>'+description+'</small></figcaption></figure>').join('')+'</div>'+
- '<p class="offer-source">피그마 핸드오프 · 주문·매출 수치는 디자인 데이터</p>'+button('owner','사장님 화면 데모 보기'),'[Handoff] 노크플레이스 · 사장님 운영']
+ button('owner','사장님 화면 데모 보기'),'[Handoff] 노크플레이스 · 사장님 운영']
 ];
 
 document.querySelector('#deck').innerHTML = pages.map(([label,title,lead,body,source],i)=>{
@@ -205,7 +205,7 @@ function renderOwnerWalkthrough(){
  const [key,label,copy]=ownerSteps[index];
  const tabs=ownerSteps.map(([id,title],i)=>'<button type="button" data-route="'+id+'" aria-current="'+(!isUnsubscribed&&index===i)+'"><span>0'+(i+1)+'</span>'+title+'</button>').join('');
  const next=ownerSteps[index+1];
- container.innerHTML='<div class="walkthrough"><div class="walk-steps">'+tabs+go('unsubscribed','미구독 상태')+'</div><figure class="walk-device">'+asset('owner-'+(isUnsubscribed?'unsubscribed':key),isUnsubscribed?'피그마 미구독 매장관리 화면':label)+'</figure><div class="walk-copy"><p class="eyebrow">사장님 화면 둘러보기</p><h3>'+(isUnsubscribed?'미구독 상태':label)+'</h3><p>'+(isUnsubscribed?'구독 전 매장관리 화면에서 구독 시작 메뉴를 확인할 수 있습니다.':copy)+'</p>'+(next&&!isUnsubscribed?actions(go(next[0],'다음 · '+next[1])):'')+'<small>피그마 핸드오프 원본</small></div></div>';
+ container.innerHTML='<div class="walkthrough"><div class="walk-steps">'+tabs+go('unsubscribed','미구독 상태')+'</div><figure class="walk-device">'+asset('owner-'+(isUnsubscribed?'unsubscribed':key),isUnsubscribed?'피그마 미구독 매장관리 화면':label)+'</figure><div class="walk-copy"><p class="eyebrow">사장님 화면 둘러보기</p><h3>'+(isUnsubscribed?'미구독 상태':label)+'</h3><p>'+(isUnsubscribed?'구독 전 매장관리 화면에서 구독 시작 메뉴를 확인할 수 있습니다.':copy)+'</p>'+(next&&!isUnsubscribed?actions(go(next[0],'다음 · '+next[1])):'')+'</div></div>';
 }
 function renderDemo(){
  if(state.route==='owner'){state.route='store';state.mode='owner';}
