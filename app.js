@@ -108,7 +108,8 @@ const brandInsertSlides = [
 document.querySelector('#brand-service-11').insertAdjacentHTML('beforebegin',
  brandInsertSlides.map(([sourcePage, description]) =>
   '<section class="page brand-service brand-insert no-print" id="brand-insert-'+sourcePage+'" aria-label="'+description+'">'+
-  asset('brand-insert-'+sourcePage, description)+'</section>').join(''));
+  asset('brand-insert-'+sourcePage, description)+
+  (sourcePage===16?'<img class="dining-partner-logo" src="dining-brands-group.png" alt="다이닝브랜즈그룹">':'')+'</section>').join(''));
 
 const dialog=document.querySelector('#demo');
 const container=document.querySelector('#demo-content');
