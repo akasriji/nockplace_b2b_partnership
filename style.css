@@ -86,3 +86,5 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 .brand-service .asset{width:100%;height:auto;max-height:none;border-radius:0}
 .brand-service::after{content:"";position:absolute;left:0;right:0;top:7.6%;height:3.2%;background:#fff;pointer-events:none}
 #brand-service-11::after{top:13.6%;height:3.1%}
+.brand-service::after,#brand-service-11::after{top:7.6%;height:3.2%}
+#brand-service-11::before{content:"";position:absolute;left:7.2%;top:55.5%;width:10%;height:3.1%;background:#f2f4f5;pointer-events:none}

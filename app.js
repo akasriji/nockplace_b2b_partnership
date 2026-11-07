@@ -91,15 +91,15 @@ document.querySelector('#p07').insertAdjacentHTML('afterend',
  '<section class="page dark service-divider no-print" id="service-intro" aria-labelledby="service-intro-title">'+
  '<h2 id="service-intro-title">노크플레이스<br>서비스 소개</h2></section>');
 
-const brandServiceSlides = [
- [9, '입주민과 동네 사장님을 연결하는 노크플레이스'],
- [10, '생활 반경을 기반으로 확장되는 로컬 비즈니스'],
- [11, '인증된 이웃 커뮤니티와 동네 생활 정보']
+const entryServiceSlides = [
+ [9, '매장 방문 고객을 위한 홍보 채널 비교'],
+ [10, '사장님을 위한 매장 맞춤 기능'],
+ [11, '구독형 결제와 광고 및 성과 측정']
 ];
 document.querySelector('#service-intro').insertAdjacentHTML('afterend',
- brandServiceSlides.map(([sourcePage, description]) =>
+ entryServiceSlides.map(([sourcePage, description]) =>
   '<section class="page brand-service no-print" id="brand-service-'+sourcePage+'" aria-label="'+description+'">'+
-  asset('brand-service-'+sourcePage, description)+'</section>').join(''));
+  asset('entry-service-'+sourcePage, description)+'</section>').join(''));
 
 const dialog=document.querySelector('#demo');
 const container=document.querySelector('#demo-content');
