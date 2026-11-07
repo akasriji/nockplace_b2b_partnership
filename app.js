@@ -246,6 +246,14 @@ document.getElementById('deck').insertAdjacentHTML('beforeend',
  asset('appendix-community','소상공인을 위한 정책지원 정보와 고객의 가게 및 주변 상권에 대한 직접 피드백')+
  '</div></div></section>');
 
+document.getElementById('deck').insertAdjacentHTML('beforeend',
+ '<section class="page closing-page" id="partnership-contact" aria-labelledby="closing-title">'+
+ '<img class="closing-logo" src="nockplace-promo-logo.png" alt="노크플레이스">'+
+ '<div class="closing-message"><h2 id="closing-title">입주민의 일상 속 발견을,<br><em>우리 매장 방문</em>으로 연결하세요</h2>'+
+ '<p>매장 노출부터 쿠폰, 채팅, 픽업까지.<br>노크플레이스와 함께 다음 고객을 만나보세요.</p></div>'+
+ '<a class="closing-contact" href="mailto:jihan.kim@trustay.me"><span>B2B 제휴 문의</span><strong>jihan.kim@trustay.me</strong></a>'+
+ '<small class="closing-copyright">© 2026 TRUSTAY Corp. All Rights Reserved.</small></section>');
+
 const deckSlides = document.querySelectorAll('#deck > .page');
 const formatPage = number => String(number).padStart(2, '0');
 deckSlides.forEach((slide, index) => {
