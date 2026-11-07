@@ -47,9 +47,9 @@ const pages = [
  grid('two',asset('audience-chart','노크타운 이용자 성별 및 연령대 차트'),'<div class="grid">'+card('30–54세 이용자','<span class="stat">70% 이상</span>')+card('성별 분포','남성 56% · 여성 44%')+'</div>')+'<p class="mini-note">노크타운 지표 · 2026년 9월 기준</p>',townSource+' 6쪽'],
  ['도입 지역','수도권과 전국 주요 거점','노크타운 도입 단지의 지역 분포 · 2026년 9월 기준',
   grid('two',asset('region','노크타운 도입 단지 지역 분포 지도'),'<div class="grid">'+card('수도권 75%','서울 21.6% · 경기·인천 53.4%')+card('그 외 지역 25%','부산·대구 10.1% · 기타 지역 14.9%')+'</div>'),townSource+' 7쪽'],
- ['B2B 제공 기능','노크플레이스에서 매장을 알리고 운영하는 방법','입주민에게 매장을 알리는 지면부터 주문과 매장 운영까지, 제휴 매장에서 사용할 기능을 한눈에 확인할 수 있습니다.',
+ ['기본 기능','노크플레이스에서 매장을 알리고 운영하는 방법','입주민에게 매장을 알리는 지면부터 주문과 매장 운영까지, 제휴 매장에서 사용할 기능을 한눈에 확인할 수 있습니다.',
  offer([['capture-home','동네생활'],['capture-map','주변 지도'],['owner-store','사장님 매장관리']],
- [['매장 발견','동네생활 매장 큐레이션 기본 제공 · 동네소통 매장 콘텐츠'],['지도 노출','주변 매장 위치 · 업종별 탐색 · 매장 목록'],['채팅·픽업','특가 채팅방 · 메뉴 확인 · 픽업 주문'],['매장 운영','메뉴와 품절 관리 · 주문 접수 · 픽업 · 매출 확인'],['배너 제공','동네생활 상단 배너 제공 가능 · 별도 협의']],
+ [['매장 발견','동네생활 매장 큐레이션 기본 제공 · 동네소통 매장 콘텐츠'],['지도 노출','주변 매장 위치 · 업종별 탐색 · 매장 목록'],['채팅·픽업','특가 채팅방 · 메뉴 확인 · 픽업 주문'],['매장 운영','메뉴와 품절 관리 · 주문 접수 · 픽업 · 매출 확인']],
  '매장 발견 → 혜택·메뉴 확인 → 문의 또는 픽업 주문','노크플레이스 인앱 · 피그마 핸드오프'),salesSource],
  ['매장 큐레이션','입주민은 어디에서 매장을 발견하나요?','동네생활에서는 매장 카드와 쿠폰을, 동네소통에서는 추천 글과 매장 소식을 통해 가까운 매장을 발견합니다.',
  offer([['capture-home','동네생활 · 슬기로운 동네 생활','25% 0% 2% 0%'],['capture-rooftop','동네소통 · 분위기 좋은 루프탑 카페','60% 0% 1% 0%'],['capture-feed','동네소통 · 실제 매장 소식']],
@@ -67,13 +67,13 @@ const pages = [
  offer([['customer-detail','상품 상세','87% 4% 3% 4%'],['customer-checkout','픽업 주문','87% 4% 3% 4%'],['customer-confirmed','주문 접수 확인']],
  [['주문 전','상품 이미지 · 혜택 · 판매가 확인'],['주문 단계','주문 내용과 결제 금액 확인'],['주문 후','접수 여부 확인 · 준비 완료 후 매장 수령']],
  '상품 상세 → 픽업 주문 → 접수 확인 → 매장 수령','피그마 핸드오프 · 화면 속 상품과 금액은 디자인 데이터')+button('pickup','픽업 주문 데모 보기'),salesSource],
- ['배너 노출','동네생활 첫 화면에 브랜드 소식을 알립니다','동네생활 상단 배너로 신상품, 행사, 프로모션을 알릴 수 있습니다.',
- offer([['capture-home','동네생활 · 상단 배너','12% 0% 74% 0%'],['banner-product','입점 소개서 · 홍보 소재 사례'],['capture-promo','사장님 · 매장 소식 홍보']],
- [['배너 위치','동네생활 첫 화면 상단'],['제공 조건','배너 제공 가능 · 금액 및 기간 별도 협의'],['매장 소식 운영','사장님 매장관리의 홍보 관리에서 게시물 선택']],
+ ['별도 광고 상품','동네생활 배너 광고','동네생활 상단 배너로 신상품, 행사, 프로모션을 알릴 수 있습니다.',
+ '<div class="banner-price-note"><strong>별도 광고 상품</strong><span>가격 협의</span></div>'+offer([['capture-home','동네생활 · 상단 배너','12% 0% 74% 0%'],['banner-product','입점 소개서 · 홍보 소재 사례']],
+ [['배너 위치','동네생활 첫 화면 상단'],['상품 구분','기본 기능과 별도로 제공하는 배너 광고 상품'],['가격','가격 협의'],['집행 기간','별도 협의']],
  '배너 지면 협의 → 소재 확정 → 동네생활 노출','노크플레이스 인앱 캡처 · 입점 소개서')+button('banner','배너 데모 보기'),salesSource],
  ['제휴 진행','참여 매장 확정부터 노출까지','참여 매장을 정하고 매장 정보를 등록하면, 검수 후 입주민에게 노출됩니다.',
  offer([['capture-store','인앱 · 매장 채널'],['capture-home','인앱 · 동네생활 노출']],
- [['대상 협의','참여 매장과 노출 대상 지역 확정'],['매장 준비','매장 정보, 메뉴, 혜택 등록 및 검수'],['노출 시작','큐레이션과 지도 노출 확인 · 배너는 별도 협의']],
+ [['대상 협의','참여 매장과 노출 대상 지역 확정'],['매장 준비','매장 정보, 메뉴, 혜택 등록 및 검수'],['노출 시작','큐레이션과 지도 노출 확인 · 배너 광고는 별도 상품 · 가격 협의']],
  '참여 매장 확정 → 등록·검수 → 노출 확인','노크플레이스 인앱 캡처 · 입점 안내'),salesSource],
  ['사장님 매장 운영','사장님은 매장을 이렇게 운영합니다','매장관리에서 메뉴를 관리하고 주문을 접수한 뒤, 픽업 준비와 매출을 확인합니다.',
  '<div class="owner-gallery">'+ownerSteps.map(([key,label,description],i)=>'<figure>'+asset('owner-'+key,'피그마 사장님 '+label)+'<figcaption><span>0'+(i+1)+'</span><strong>'+label+'</strong><small>'+description+'</small></figcaption></figure>').join('')+'</div>'+
@@ -163,6 +163,22 @@ for (const [id, label, title, lead, selectors, cut] of sourceSlideHeaders) {
  slide.prepend(header);
  slide.classList.add('source-page');
 }
+
+const basicFeatures = [
+ ['capture-home', '매장 발견', '동네생활과 동네소통에서 매장과 혜택을 알립니다.'],
+ ['capture-map', '지도 노출', '주변 매장의 위치와 업종, 거리와 혜택을 보여줍니다.'],
+ ['capture-chat', '채팅방 운영', '특가 소식을 전하고 메뉴와 재고 문의를 받습니다.'],
+ ['customer-checkout', '픽업 주문', '상품 확인부터 주문과 매장 수령까지 연결합니다.']
+];
+document.querySelector('#p08').insertAdjacentHTML('beforebegin',
+ '<section class="page basic-features" id="basic-features" aria-labelledby="basic-features-title">'+
+ '<div class="eyebrow">노크플레이스 기본 기능</div>'+
+ '<h2 id="basic-features-title">매장 발견부터 픽업 주문까지</h2>'+
+ '<p class="lead">매장 큐레이션, 지도 노출, 채팅방 운영과 픽업 주문을 기본 기능으로 제공합니다.</p>'+
+ '<div class="body"><div class="feature-overview">'+basicFeatures.map(([file,title,description])=>
+ '<figure>'+asset(file,title)+'<figcaption><strong>'+title+'</strong><p>'+description+'</p></figcaption></figure>').join('')+
+ '</div><div class="feature-owner"><strong>사장님 매장관리</strong><span>메뉴·품절 관리 · 주문 접수 · 픽업 준비 · 매출 확인</span></div>'+
+ '<p class="separate-banner">배너 광고는 별도 상품으로 제공하며, 가격은 협의합니다.</p></div></section>');
 
 const deckSlides = document.querySelectorAll('#deck > .page');
 const formatPage = number => String(number).padStart(2, '0');
