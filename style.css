@@ -76,3 +76,7 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
  .town-original-screen{display:block;width:100%}
  .town-original-screen .asset{width:100%;height:auto;max-height:none;border-radius:0}
 }
+@media screen{
+ .town-original-screen{position:relative}
+ .town-original-screen::after{content:"";position:absolute;left:5%;top:3%;width:12%;height:3%;background:#fff;pointer-events:none}
+}
