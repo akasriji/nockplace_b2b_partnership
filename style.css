@@ -89,4 +89,18 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 .brand-service::after,#brand-service-11::after{top:7.6%;height:3.2%}
 #brand-service-11::before{content:"";position:absolute;left:7.2%;top:55.5%;width:10%;height:3.1%;background:#f2f4f5;pointer-events:none}
 .brand-insert::before{content:"";position:absolute;right:4.8%;bottom:2.7%;width:2.5%;height:3%;background:#fff;pointer-events:none}
-.dining-partner-logo{position:absolute;left:86%;top:79.5%;width:10%;height:auto;transform:translateY(-50%)}
+.partner-logo-row {
+  position: absolute;
+  inset: 87% 7% 4% 50%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 4%;
+}
+.partner-logo-row img {
+  width: 94%;
+  height: 70%;
+  min-height: 0;
+  object-fit: contain;
+}

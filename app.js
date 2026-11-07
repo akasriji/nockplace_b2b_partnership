@@ -109,7 +109,13 @@ document.querySelector('#brand-service-11').insertAdjacentHTML('beforebegin',
  brandInsertSlides.map(([sourcePage, description]) =>
   '<section class="page brand-service brand-insert no-print" id="brand-insert-'+sourcePage+'" aria-label="'+description+'">'+
   asset('brand-insert-'+sourcePage, description)+
-  (sourcePage===16?'<img class="dining-partner-logo" src="dining-brands-group.png" alt="다이닝브랜즈그룹">':'')+'</section>').join(''));
+  (sourcePage===16 ? [
+    '<div class="partner-logo-row" role="group" aria-label="추가 파트너">',
+    '<img src="nice-information.svg" alt="나이스정보통신">',
+    '<img src="dining-brands-group.png" alt="다이닝브랜즈그룹">',
+    '<img src="toss-place.png" alt="토스플레이스">',
+    '</div>'
+  ].join('') : '')+'</section>').join(''));
 
 const dialog=document.querySelector('#demo');
 const container=document.querySelector('#demo-content');
