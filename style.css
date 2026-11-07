@@ -82,3 +82,7 @@ dialog{width:min(940px,calc(100% - 24px));max-height:92vh}.dialog-head{backgroun
 }
 .page.service-divider{min-height:0;aspect-ratio:16/9;justify-content:center;padding:clamp(24px,7vw,92px)}
 .service-divider h2{font-size:clamp(34px,7vw,90px);font-weight:850;line-height:1.01;letter-spacing:-.065em}
+.page.brand-service{min-height:0;padding:0}
+.brand-service .asset{width:100%;height:auto;max-height:none;border-radius:0}
+.brand-service::after{content:"";position:absolute;left:0;right:0;top:7.6%;height:3.2%;background:#fff;pointer-events:none}
+#brand-service-11::after{top:13.6%;height:3.1%}

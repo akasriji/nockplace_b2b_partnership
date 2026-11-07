@@ -91,6 +91,16 @@ document.querySelector('#p07').insertAdjacentHTML('afterend',
  '<section class="page dark service-divider no-print" id="service-intro" aria-labelledby="service-intro-title">'+
  '<h2 id="service-intro-title">노크플레이스<br>서비스 소개</h2></section>');
 
+const brandServiceSlides = [
+ [9, '입주민과 동네 사장님을 연결하는 노크플레이스'],
+ [10, '생활 반경을 기반으로 확장되는 로컬 비즈니스'],
+ [11, '인증된 이웃 커뮤니티와 동네 생활 정보']
+];
+document.querySelector('#service-intro').insertAdjacentHTML('afterend',
+ brandServiceSlides.map(([sourcePage, description]) =>
+  '<section class="page brand-service no-print" id="brand-service-'+sourcePage+'" aria-label="'+description+'">'+
+  asset('brand-service-'+sourcePage, description)+'</section>').join(''));
+
 const dialog=document.querySelector('#demo');
 const container=document.querySelector('#demo-content');
 const state={route:'home',order:0,soldOut:false,reply:false,unsubscribed:false,period:'오늘',detail:false};
