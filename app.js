@@ -87,6 +87,10 @@ for (const [id, sourcePage, description] of townOriginals) {
   asset('town-original-'+sourcePage, description)+'</div>');
 }
 
+document.querySelector('#p07').insertAdjacentHTML('afterend',
+ '<section class="page dark service-divider no-print" id="service-intro" aria-labelledby="service-intro-title">'+
+ '<h2 id="service-intro-title">노크플레이스<br>서비스 소개</h2></section>');
+
 const dialog=document.querySelector('#demo');
 const container=document.querySelector('#demo-content');
 const state={route:'home',order:0,soldOut:false,reply:false,unsubscribed:false,period:'오늘',detail:false};
